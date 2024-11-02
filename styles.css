@@ -14,8 +14,8 @@ body {
 }
 
 #container {
-  max-width: 100%;
-  width: 50%;
+  max-width: 1200px;
+  width: 100%;
   padding: 20px;
   background-color: #333333;
   border-radius: 10px;
@@ -60,24 +60,13 @@ h2, h3 {
 }
 
 #code-container, #output-container, #test-container {
-  background-color: #444444;
+  background-color: #444;
   padding: 1em;
   border-radius: 8px;
   margin-top: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   width: 100%;
-  box-sizing: border-box;
 }
-
-pre {
-  font-size: 1em;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  color: #e4e4e4;
-  width: 100%;
-  box-sizing: border-box;
-}
-
 /* セクションのスタイル */
 section {
   margin-bottom: 20px;
