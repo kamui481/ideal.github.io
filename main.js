@@ -6,8 +6,9 @@ const codeDisplay = document.getElementById('codeDisplay');
 const outputDisplay = document.getElementById('outputDisplay');
 const testDataDisplay = document.getElementById('testDataDisplay');
 
-// 入力されるコード（途中まで入力）
-const code = `
+// 入力されるコード（途中まで入力されるものを複数設定）
+const codeSamples = [
+  `
 import sys
 from collections import defaultdict
 
@@ -20,7 +21,28 @@ def add_dicts(d1, d2):
             d1[k] += d2[k]
         else:
             d1[k] = d2[k]
-`;
+  `,
+  `
+from collections import deque
+
+def bfs(maze, start, goal, rows, cols):
+    directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+    queue = deque([(start[0], start[1], 0)])
+    visited = set()
+    visited.add((start[0], start[1]))
+
+    while queue:
+        x, y, dist = queue.popleft()
+
+        if (x, y) == goal:
+            return dist
+
+        for dx, dy in directions:
+            nx, ny = x + dx, y + dy
+
+            if 0 <= nx < rows and 0 <= ny < cols and (nx, ny) not in visited and maze[nx][ny] != '1':
+  `
+];
 
 // テストデータの定義
 const testCases = [
@@ -31,11 +53,20 @@ const testCases = [
   {
     input: "10000(10000(10000(2000(ab)500(dz)c200h)2mu3000(fpr)))",
     expected: `a 2000000000000000\nb 2000000000000000\nc 1000000000000\nd 500000000000000\ne 0\nf 300000000000\ng 0\nh 200000000000000\ni 0\nj 0\nk 0\nl 0\nm 200000000\nn 0\no 0\np 300000000000\nq 0\nr 300000000000\ns 0\nt 0\nu 100000000\nv 0\nw 0\nx 0\ny 0\nz 500000000000000`
+  },
+  {
+    input: "4 5\n0 s 0 1\n0 0 1 0\n0 1 1 0\n0 0 1 g\n0 0 0 0",
+    expected: "9"  // ショートテスト
+  },
+  {
+    input: "4 4\n0 s 0 1\n1 0 0 0\n0 1 1 1\n0 0 0 g",
+    expected: "Fail" // ショートテスト
   }
 ];
 
 let typingIndex = 0;
 let testIndex = 0;
+let codeIndex = 0;
 const typingSpeed = 50; // コード入力の速度
 
 // コードをアニメーションで途中まで表示する関数
@@ -47,8 +78,8 @@ function startTypingAnimation() {
   typingIndex = 0;
 
   function type() {
-    if (typingIndex < code.length) {
-      codeDisplay.textContent += code[typingIndex];
+    if (typingIndex < codeSamples[codeIndex].length) {
+      codeDisplay.textContent += codeSamples[codeIndex][typingIndex];
       typingIndex++;
       setTimeout(type, typingSpeed);
     } else {
@@ -61,7 +92,7 @@ function startTypingAnimation() {
 // テストデータを表示し、裏で完全な処理を実行して結果を出力
 function displayTestData() {
   const currentTest = testCases[testIndex];
-  testDataDisplay.textContent = `入力データ: ${currentTest.input}`;
+  testDataDisplay.textContent = `入力データ:\n${currentTest.input}`;
   
   // 完全な処理を模擬して出力
   setTimeout(() => {
@@ -69,7 +100,11 @@ function displayTestData() {
     outputDisplay.innerHTML = (result === currentTest.expected) 
       ? 'テスト合格:<br>' + result.replace(/\n/g, '<br>') // 改行を<br>に変換
       : 'テスト不合格';
-    testIndex = (testIndex + 1) % testCases.length; // 次のテストケースへ
+    
+    // 次のテストケース・コードに進む
+    testIndex = (testIndex + 1) % testCases.length;
+    codeIndex = (codeIndex + 1) % codeSamples.length;
+    
     setTimeout(startTypingAnimation, 3000); // 次のアニメーション開始
   }, 1000);
 }
