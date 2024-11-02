@@ -1,38 +1,111 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>技術スタック・スキルマップ</title>
+  <style>
+    /* スキルマップのスタイル */
+    .mindmap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      margin-top: 20px;
+    }
+    .node {
+      padding: 8px 12px;
+      margin: 10px;
+      background-color: #DDDDDD;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .branch {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .line {
+      height: 20px;
+      width: 2px;
+      background-color: #333;
+      margin: 0 auto;
+    }
+    .sub-branch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>My Portfolio</h1>
-    <p>Welcome to my professional portfolio!</p>
-  </header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>簡単な自己紹介をここに書きます。技術スタックやこれまでの実績についても触れます。</p>
-  </section>
+<div id="mindmap" class="mindmap"></div>
 
-  <section>
-    <h2>Projects</h2>
-    <ul>
-      <li>
-        <h3>Project 1</h3>
-        <p>Project 1の説明。</p>
-      </li>
-      <li>
-        <h3>Project 2</h3>
-        <p>Project 2の説明。</p>
-      </li>
-    </ul>
-  </section>
+<script>
+  // 技術スタックのデータ構造
+  const skillMap = {
+    name: "技術スタック・スキルマップ",
+    children: [
+      {
+        name: "プログラミング言語",
+        children: ["Java", "C#", "PHP", "JavaScript", "Python"]
+      },
+      {
+        name: "フレームワーク・ライブラリ",
+        children: ["Spring", "Django", "Vue.js", "React.js"]
+      },
+      {
+        name: "ツール・プラットフォーム",
+        children: ["AWS", "Docker", "Salesforce", "Tableau"]
+      },
+      {
+        name: "プロジェクト管理",
+        children: ["アジャイル開発", "Scrum", "Kanban", "ウォーターフォール"]
+      }
+    ]
+  };
 
-  <footer>
-    <p>Contact: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-  </footer>
+  // マインドマップを作成する関数
+  function createMindmap(container, data) {
+    const root = document.createElement("div");
+    root.classList.add("node");
+    root.textContent = data.name;
+    container.appendChild(root);
+
+    const branchContainer = document.createElement("div");
+    branchContainer.classList.add("branch");
+    container.appendChild(branchContainer);
+
+    data.children.forEach(child => {
+      const subBranch = document.createElement("div");
+      subBranch.classList.add("sub-branch");
+
+      const line = document.createElement("div");
+      line.classList.add("line");
+      subBranch.appendChild(line);
+
+      const branchNode = document.createElement("div");
+      branchNode.classList.add("node");
+      branchNode.textContent = child.name || child;
+      subBranch.appendChild(branchNode);
+
+      if (child.children) {
+        createMindmap(subBranch, child);
+      }
+
+      branchContainer.appendChild(subBranch);
+    });
+  }
+
+  // マインドマップのルート要素を生成
+  const mindmapContainer = document.getElementById("mindmap");
+  createMindmap(mindmapContainer, skillMap);
+</script>
+
 </body>
 </html>
