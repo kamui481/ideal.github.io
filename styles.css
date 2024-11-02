@@ -1,23 +1,20 @@
 /* 基本スタイル */
 body {
-  font-family: Arial, sans-serif;
-  color: #333;
-  background-color: #f4f4f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #E0E0E0;
+  background-color: #1C1C1C;
   margin: 0;
   padding: 0;
   line-height: 1.6;
 }
 
-h1, h2 {
-  color: #4CAF50;
-}
-
 /* ヘッダーのスタイル */
 header {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #333333;
+  color: #E0E0E0;
   text-align: center;
   padding: 2em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
@@ -25,18 +22,24 @@ header h1 {
   font-size: 2.5em;
 }
 
+header p {
+  font-size: 1.2em;
+  color: #B0B0B0;
+}
+
 /* セクションのスタイル */
 section {
   padding: 2em;
   max-width: 800px;
-  margin: 0 auto;
-  background-color: white;
+  margin: 3em auto;
+  background-color: #2E2E2E;
   border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   margin-bottom: 1.5em;
 }
 
 section h2 {
+  color: #4CAF50;
   border-bottom: 2px solid #4CAF50;
   padding-bottom: 0.3em;
 }
@@ -45,9 +48,9 @@ section h2 {
 .project {
   padding: 1.5em;
   margin-top: 1em;
-  background-color: #e8f5e9;
+  background-color: #3C3C3C;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
 
@@ -57,27 +60,29 @@ section h2 {
 
 .project h3 {
   margin-top: 0;
-  color: #333;
+  color: #E0E0E0;
 }
 
 .project p {
   margin: 0.5em 0;
+  color: #B0B0B0;
 }
 
 /* 画像のスタイル */
 .project-img {
-  width: 100%;       /* 画像の幅を100%に設定 */
-  height: auto;      /* 高さを自動調整して縦横比を維持 */
+  width: 100%;
+  max-width: 600px;
+  height: auto;
   border-radius: 8px;
   margin-bottom: 1em;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* ボタンスタイル */
 button {
   padding: 0.8em 1.5em;
   font-size: 1em;
-  color: white;
+  color: #E0E0E0;
   background-color: #4CAF50;
   border: none;
   border-radius: 5px;
@@ -93,20 +98,22 @@ button:hover {
 textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #666;
   border-radius: 5px;
   font-family: Arial, sans-serif;
   resize: vertical;
   margin-bottom: 1em;
+  background-color: #2E2E2E;
+  color: #E0E0E0;
 }
 
 /* 出力エリア */
 #output {
-  background-color: #f9f9f9;
+  background-color: #3C3C3C;
   padding: 10px;
   border-radius: 5px;
   font-family: monospace;
-  color: #333;
+  color: #E0E0E0;
   white-space: pre-wrap;
   margin-top: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -116,8 +123,8 @@ textarea {
 footer {
   text-align: center;
   padding: 1em;
-  background-color: #333;
-  color: white;
+  background-color: #333333;
+  color: #E0E0E0;
   margin-top: 2em;
 }
 
