@@ -64,8 +64,8 @@ section h2 {
 
 /* 画像のスタイル */
 .project-img {
-  width: 100%;
-  height: auto;
+  width: 100%;   /* 画像の幅を100%に設定 */
+  height: auto;  /* 高さを自動調整して縦横比を維持 */
   border-radius: 8px;
   margin-bottom: 1em;
 }
