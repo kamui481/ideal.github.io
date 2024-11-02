@@ -40,15 +40,6 @@ section h2 {
   padding-bottom: 0.3em;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 1em;
-}
-
 /* プロジェクトカードのスタイル */
 .project {
   padding: 1em;
@@ -67,12 +58,16 @@ li {
   margin-top: 0;
 }
 
+.project p {
+  margin: 0.5em 0;
+}
+
 /* 画像のスタイル */
 .project-img {
-  width: 100%;               /* コンテナ幅に合わせる */
-  max-width: 100%;           /* 最大幅を100%に設定 */
-  height: auto;              /* 高さを自動調整 */
-  border-radius: 8px;        /* 角を丸める */
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
   margin-bottom: 1em;
 }
 
