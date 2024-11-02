@@ -1,106 +1,188 @@
-// =============================
-// 自動コード入力・実行デモのスクリプト
-// =============================
+/* 基本スタイル */
+body {
+  font-family: Arial, sans-serif;
+  color: #e4e4e4;
+  background-color: #222222;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-const codeDisplay = document.getElementById('codeDisplay');
-const outputDisplay = document.getElementById('outputDisplay');
-const testDisplay = document.getElementById('testDisplay');
+#container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+  background-color: #333333;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
 
-// 自動入力されるコード
-const code = `
-const greet = (name) => \`こんにちは、\${name}さん！\`;
-console.log(greet('太郎'));
-`;
+/* ヘッダーのスタイル */
+header {
+  background-color: #444444;
+  color: #a4d4a4;
+  text-align: center;
+  padding: 1.5em;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  font-weight: bold;
+  animation: fadeIn 1s ease;
+}
 
-// テストデータと期待結果
-const testData = [
-  { input: '太郎', expected: 'こんにちは、太郎さん！' },
-  { input: '花子', expected: 'こんにちは、花子さん！' }
-];
+/* セクションのスタイル */
+section {
+  margin-bottom: 20px;
+  padding: 1.5em;
+  background-color: #2a2a2a;
+  color: #e4e4e4;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
 
-// 自動入力のスピード
-const typingSpeed = 100; // ミリ秒
+section:hover {
+  transform: translateY(-5px);
+}
 
-// 実行関数
-function executeCode() {
-  outputDisplay.textContent = ''; // 出力をクリア
-  try {
-    const result = eval(code);
-    outputDisplay.textContent = '実行結果: ' + result;
-    runTests();
-  } catch (error) {
-    outputDisplay.textContent = 'エラー: ' + error.message;
+section h2 {
+  color: #4caf50;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 0.3em;
+  margin-bottom: 1em;
+}
+
+/* ポートフォリオ画像のスタイル */
+.portfolio-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* リストとテキストスタイルの調整 */
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 1em 0;
+}
+
+li {
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+
+p, a {
+  color: #e4e4e4;
+}
+
+a:hover {
+  color: #4caf50;
+  text-decoration: underline;
+}
+
+/* 各プロジェクトカードのスタイル */
+.project {
+  background-color: #444444;
+  padding: 1.2em;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.project h3 {
+  color: #a4d4a4;
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.project p {
+  margin: 0.5em 0;
+  line-height: 1.5;
+}
+
+/* 画像のスタイル */
+.project-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1em;
+  border-radius: 8px;
+}
+
+/* コード実行エリアのスタイル */
+#codeInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #e4e4e4;
+  border: 1px solid #4caf50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* フッターのスタイル */
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #444444;
+  color: #e4e4e4;
+  border-radius: 10px;
+}
+
+footer a {
+  color: #4caf50;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  #container {
+    padding: 10px;
+  }
+  header, section, footer {
+    padding: 1em;
+  }
+  section h2 {
+    font-size: 1.4em;
+  }
+  button {
+    font-size: 0.9em;
   }
 }
 
-// テスト実行
-function runTests() {
-  testDisplay.textContent = ''; // テスト結果をクリア
-  let allPassed = true;
-  
-  testData.forEach((test, index) => {
-    const { input, expected } = test;
-    const actual = eval(`greet('${input}')`);
-    const passed = actual === expected;
-    allPassed = allPassed && passed;
-    testDisplay.textContent += `テスト ${index + 1}: 入力 = ${input}, 期待結果 = ${expected}, 実際の結果 = ${actual} - ${passed ? '合格' : '不合格'}\n`;
-  });
-
-  if (allPassed) {
-    testDisplay.textContent += '\nすべてのテストに合格しました！';
-  } else {
-    testDisplay.textContent += '\n一部のテストに不合格です。';
+/* アニメーション */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-
-  // 次のデモ開始
-  setTimeout(startTypingAnimation, 3000); // 3秒後に再スタート
-}
-
-// コードを入力アニメーションで表示する関数
-function startTypingAnimation() {
-  codeDisplay.textContent = ''; // コード表示をクリア
-  outputDisplay.textContent = '';
-  testDisplay.textContent = '';
-
-  let index = 0;
-
-  function type() {
-    if (index < code.length) {
-      codeDisplay.textContent += code[index];
-      index++;
-      setTimeout(type, typingSpeed);
-    } else {
-      // コードの入力が完了したら実行
-      executeCode();
-    }
+  to {
+    opacity: 1;
   }
-  type();
 }
-
-// 初回のアニメーション開始
-startTypingAnimation();
-
-
-// =============================
-// スクロールエフェクトのスクリプト
-// =============================
-
-// スクロールエフェクト
-document.addEventListener('scroll', () => {
-  const projects = document.querySelectorAll('.project');
-  projects.forEach(project => {
-    const position = project.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
-    if (position < windowHeight - 100) {
-      project.style.opacity = '1';
-      project.style.transform = 'translateY(0)';
-    }
-  });
-});
-
-// 初期状態を隠す設定
-document.querySelectorAll('.project').forEach(project => {
-  project.style.opacity = '0';
-  project.style.transform = 'translateY(50px)';
-  project.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-});
