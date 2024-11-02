@@ -1,11 +1,19 @@
 /* 基本スタイル */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   color: #E0E0E0;
   background-color: #1C1C1C;
   margin: 0;
   padding: 0;
-  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+}
+
+#container {
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* ヘッダーのスタイル */
@@ -15,6 +23,7 @@ header {
   text-align: center;
   padding: 2em;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1em;
 }
 
 header h1 {
@@ -29,15 +38,14 @@ header p {
 
 /* セクションのスタイル */
 section {
-  padding: 2em;
-  max-width: 800px;
-  margin: 3em auto;
   background-color: #2E2E2E;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1.5em;
+  margin-bottom: 2em;
+  padding: 2em;
 }
 
+/* 見出しのスタイル */
 section h2 {
   color: #4CAF50;
   border-bottom: 2px solid #4CAF50;
@@ -78,23 +86,7 @@ section h2 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* ボタンスタイル */
-button {
-  padding: 0.8em 1.5em;
-  font-size: 1em;
-  color: #E0E0E0;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-/* テキストエリアスタイル */
+/* テキストエリアとボタンスタイル */
 textarea {
   width: 100%;
   padding: 10px;
@@ -105,18 +97,6 @@ textarea {
   margin-bottom: 1em;
   background-color: #2E2E2E;
   color: #E0E0E0;
-}
-
-/* 出力エリア */
-#output {
-  background-color: #3C3C3C;
-  padding: 10px;
-  border-radius: 5px;
-  font-family: monospace;
-  color: #E0E0E0;
-  white-space: pre-wrap;
-  margin-top: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* フッターのスタイル */
