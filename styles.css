@@ -67,9 +67,9 @@ h2, h3 {
   background-color: #444;
   padding: 1em;
   border-radius: 8px;
-  margin-top: 20px;
+  margin-top: 5px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-  width: 80%;
+  width: 95%;
   box-sizing: border-box;
   overflow-wrap: break-word; /* 長い行を折り返し */
   word-wrap: break-word; /* はみ出し防止 */
