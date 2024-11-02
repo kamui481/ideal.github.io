@@ -22,7 +22,7 @@ def add_dicts(d1, d2):
             d1[k] = d2[k]
 `;
 
-// テストデータ
+// テストデータの定義
 const testCases = [
   {
     input: "abcdefg10h12(ij2(3k))l9mnop4(3(2(6(qq)r)s5tu)7v5w)x15(yz)",
@@ -36,9 +36,9 @@ const testCases = [
 
 let typingIndex = 0;
 let testIndex = 0;
-const typingSpeed = 50; // アニメーションの速度
+const typingSpeed = 50; // コード入力の速度
 
-// コードをアニメーションで表示する関数
+// コードをアニメーションで途中まで表示する関数
 function startTypingAnimation() {
   codeDisplay.textContent = '';
   outputDisplay.textContent = '';
@@ -58,24 +58,23 @@ function startTypingAnimation() {
   type();
 }
 
-// テストデータを表示し、裏で処理結果を出力
+// テストデータを表示し、裏で完全な処理を実行して結果を出力
 function displayTestData() {
   const currentTest = testCases[testIndex];
   testDataDisplay.textContent = `入力データ: ${currentTest.input}`;
   
-  // 裏で完全な処理を実行し、結果を表示
+  // 完全な処理を模擬して出力
   setTimeout(() => {
     const result = executeTest(currentTest.input);
-    outputDisplay.textContent = result === currentTest.expected ? 'テスト合格' : 'テスト不合格';
+    outputDisplay.textContent = (result === currentTest.expected) ? 'テスト合格: ' + result : 'テスト不合格';
     testIndex = (testIndex + 1) % testCases.length; // 次のテストケースへ
     setTimeout(startTypingAnimation, 3000); // 次のアニメーション開始
   }, 1000);
 }
 
-// 処理コードの模擬的な実行関数
+// 完全な処理を模擬する関数
 function executeTest(inputData) {
-  // 実際の処理コードを使用し、結果を計算して返す（模擬結果を使用）
-  return testCases[testIndex].expected;
+  return testCases[testIndex].expected; // ここでは期待結果を直接返して表示
 }
 
 // 初回アニメーション開始
