@@ -45,6 +45,28 @@ header p {
   font-size: 0.9em; /* サブテキストのフォントサイズも小さく */
 }
 
+#demo {
+  max-width: 100%;
+  width: 100%;
+  padding: 1em;
+  background-color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  margin: 20px;
+}
+
+h2, h3 {
+  color: #4caf50;
+}
+
+#code-container, #output-container, #test-container {
+  background-color: #444;
+  padding: 1em;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
 /* セクションのスタイル */
 section {
   margin-bottom: 20px;
