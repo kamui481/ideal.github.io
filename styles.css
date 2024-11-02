@@ -32,6 +32,7 @@ header {
   margin-bottom: 20px;
   font-size: 1.8em;
   font-weight: bold;
+  animation: fadeIn 1s ease;
 }
 
 /* セクションのスタイル */
@@ -42,6 +43,11 @@ section {
   color: #e4e4e4;
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
 }
 
 section h2 {
@@ -112,6 +118,33 @@ a:hover {
   border-radius: 8px;
 }
 
+/* コード実行エリアのスタイル */
+#codeInput {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #2a2a2a;
+  color: #e4e4e4;
+  border: 1px solid #4caf50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
 /* フッターのスタイル */
 footer {
   text-align: center;
@@ -126,4 +159,30 @@ footer a {
 }
 footer a:hover {
   text-decoration: underline;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  #container {
+    padding: 10px;
+  }
+  header, section, footer {
+    padding: 1em;
+  }
+  section h2 {
+    font-size: 1.4em;
+  }
+  button {
+    font-size: 0.9em;
+  }
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
