@@ -56,6 +56,24 @@ li {
   background-color: #e8f5e9;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project:hover {
+  transform: scale(1.02);
+}
+
+.project h3 {
+  margin-top: 0;
+}
+
+/* 画像のスタイル */
+.project-img {
+  width: 100%;               /* コンテナ幅に合わせる */
+  max-width: 100%;           /* 最大幅を100%に設定 */
+  height: auto;              /* 高さを自動調整 */
+  border-radius: 8px;        /* 角を丸める */
+  margin-bottom: 1em;
 }
 
 /* フッターのスタイル */
