@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>My Portfolio & PAIZA Sランクデモ</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- メインコンテナ -->
   <div id="container">
-  <!-- ヘッダーセクション -->
-  <header>
-    <h1>ポートフォリオ</h1>
-    <p>技術で未来を切り拓く</p>
-  </header>
 
+    <!-- ポートフォリオ ヘッダー -->
+    <header>
+      <h1>ポートフォリオ</h1>
+      <p>技術で未来を切り拓く</p>
+    </header>
 
     <!-- ポートフォリオの目的図 -->
     <section id="portfolio-goal">
@@ -82,6 +83,23 @@ greet('太郎');
       <div id="output" class="output-display"></div>
     </section>
 
+    <!-- PAIZA Sランク取得デモセクション -->
+    <section id="demo">
+      <h2>PAIZA Sランク取得デモ</h2>
+      <div id="code-container">
+        <h3>入力コード</h3>
+        <pre id="codeDisplay"></pre>
+      </div>
+      <div id="output-container">
+        <h3>出力結果</h3>
+        <pre id="outputDisplay"></pre>
+      </div>
+      <div id="test-container">
+        <h3>テスト結果</h3>
+        <pre id="testDisplay"></pre>
+      </div>
+    </section>
+
     <!-- 自己紹介セクション -->
     <section id="about">
       <h2>About Me</h2>
@@ -123,6 +141,7 @@ greet('太郎');
 
   </div>
   <!-- JavaScriptファイルのリンク -->
+  <script src="main.js"></script>
   <script>
     function runCode() {
       const code = document.getElementById('codeInput').value;
