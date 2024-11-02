@@ -118,33 +118,6 @@ a:hover {
   border-radius: 8px;
 }
 
-/* コード実行エリアのスタイル */
-#codeInput {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #2a2a2a;
-  color: #e4e4e4;
-  border: 1px solid #4caf50;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #4caf50;
-  color: #fff;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
 /* フッターのスタイル */
 footer {
   text-align: center;
