@@ -1,111 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>技術スタック・スキルマップ</title>
-  <style>
-    /* スキルマップのスタイル */
-    .mindmap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-      margin-top: 20px;
-    }
-    .node {
-      padding: 8px 12px;
-      margin: 10px;
-      background-color: #DDDDDD;
-      border-radius: 5px;
-      text-align: center;
-      font-weight: bold;
-    }
-    .branch {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-    .line {
-      height: 20px;
-      width: 2px;
-      background-color: #333;
-      margin: 0 auto;
-    }
-    .sub-branch {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  </style>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- ヘッダー -->
+  <header>
+    <h1>My Portfolio</h1>
+    <p>技術と実績で未来を切り拓く</p>
+  </header>
 
-<div id="mindmap" class="mindmap"></div>
+  <!-- 自己紹介 -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>私はシステムエンジニア・プロジェクトマネージャーで、10年以上の経験があります。得意分野はフルスタック開発、プロジェクト管理、効率化支援です。</p>
+  </section>
 
-<script>
-  // 技術スタックのデータ構造
-  const skillMap = {
-    name: "技術スタック・スキルマップ",
-    children: [
-      {
-        name: "プログラミング言語",
-        children: ["Java", "C#", "PHP", "JavaScript", "Python"]
-      },
-      {
-        name: "フレームワーク・ライブラリ",
-        children: ["Spring", "Django", "Vue.js", "React.js"]
-      },
-      {
-        name: "ツール・プラットフォーム",
-        children: ["AWS", "Docker", "Salesforce", "Tableau"]
-      },
-      {
-        name: "プロジェクト管理",
-        children: ["アジャイル開発", "Scrum", "Kanban", "ウォーターフォール"]
-      }
-    ]
-  };
+  <!-- プロジェクト -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Project 1</h3>
+      <p>顧客管理システムの開発。JavaとSpringを使用し、AWSにデプロイ。担当：要件定義から実装まで。</p>
+      <a href="https://github.com/yourusername/project1">GitHub リンク</a>
+    </div>
+    <div class="project">
+      <h3>Project 2</h3>
+      <p>データ分析ダッシュボードの構築。TableauとSalesforceを活用し、リアルタイム分析を実現。</p>
+      <a href="https://github.com/yourusername/project2">GitHub リンク</a>
+    </div>
+  </section>
 
-  // マインドマップを作成する関数
-  function createMindmap(container, data) {
-    const root = document.createElement("div");
-    root.classList.add("node");
-    root.textContent = data.name;
-    container.appendChild(root);
+  <!-- スキルセット -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>プログラミング言語：Java, JavaScript, PHP, Python</li>
+      <li>フレームワーク：Spring, Vue.js, Django</li>
+      <li>ツール：AWS, Docker, Salesforce, Tableau</li>
+    </ul>
+  </section>
 
-    const branchContainer = document.createElement("div");
-    branchContainer.classList.add("branch");
-    container.appendChild(branchContainer);
-
-    data.children.forEach(child => {
-      const subBranch = document.createElement("div");
-      subBranch.classList.add("sub-branch");
-
-      const line = document.createElement("div");
-      line.classList.add("line");
-      subBranch.appendChild(line);
-
-      const branchNode = document.createElement("div");
-      branchNode.classList.add("node");
-      branchNode.textContent = child.name || child;
-      subBranch.appendChild(branchNode);
-
-      if (child.children) {
-        createMindmap(subBranch, child);
-      }
-
-      branchContainer.appendChild(subBranch);
-    });
-  }
-
-  // マインドマップのルート要素を生成
-  const mindmapContainer = document.getElementById("mindmap");
-  createMindmap(mindmapContainer, skillMap);
-</script>
-
+  <!-- コンタクト -->
+  <footer id="contact">
+    <p>Contact: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    <p>
+      <a href="https://linkedin.com/in/yourusername">LinkedIn</a> |
+      <a href="https://github.com/yourusername">GitHub</a>
+    </p>
+  </footer>
 </body>
 </html>
