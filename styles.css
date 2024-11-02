@@ -17,19 +17,7 @@ header {
   color: #a4d4a4;
   background-color: #444;
   width: 100%;
-  padding: 0.5em; /* パディングを小さくしてコンパクトに */
-  font-size: 1.2em; /* フォントサイズを小さくしてコンパクトに */
-  border-bottom: 1px solid #333;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.5em; /* タイトルフォントサイズを少し小さく */
-}
-
-header p {
-  margin: 0;
-  font-size: 0.9em; /* サブテキストのフォントサイズも小さく */
+  padding: 1em;
 }
 
 #demo {
