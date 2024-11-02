@@ -1,4 +1,4 @@
-/* 全体の基本スタイル */
+/* 全体のスタイル */
 body {
   font-family: Arial, sans-serif;
   color: #333;
@@ -9,43 +9,27 @@ body {
 
 /* ヘッダーのスタイル */
 header {
-  background-color: #4CAF50;
+  background-color: #1a73e8;
   color: white;
   text-align: center;
-  padding: 2em;
+  padding: 4em 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.5em;
 }
 
 /* セクションのスタイル */
 section {
-  padding: 2em;
+  padding: 4em;
   max-width: 800px;
   margin: 0 auto;
-  background-color: white;
-  border-radius: 5px;
-  margin-bottom: 2em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  color: #4CAF50;
-  border-bottom: 2px solid #4CAF50;
-  padding-bottom: 0.3em;
-}
-
-/* プロジェクトセクションのスタイル */
+/* プロジェクトアイテム */
 .project {
-  margin-bottom: 1.5em;
-}
-
-.project h3 {
-  margin: 0;
-  color: #333;
+  margin-bottom: 2em;
+  padding: 2em;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* フッターのスタイル */
@@ -57,9 +41,5 @@ footer {
 }
 
 footer a {
-  color: #4CAF50;
-  text-decoration: none;
-}
-footer a:hover {
-  text-decoration: underline;
+  color: #1a73e8;
 }
