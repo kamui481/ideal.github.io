@@ -19,6 +19,8 @@ body {
   padding: 20px;
   background-color: #333333;
   border-radius: 10px;
+  box-sizing: border-box;
+  overflow: hidden; /* はみ出し防止 */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -27,22 +29,22 @@ header {
   background-color: #444444;
   color: #a4d4a4;
   text-align: center;
-  padding: 0.8em; /* パディングを小さくしてコンパクトに */
+  padding: 0.8em;
   border-radius: 10px;
   margin-bottom: 20px;
-  font-size: 1.4em; /* フォントサイズを少し小さく */
+  font-size: 1.4em;
   font-weight: bold;
   animation: fadeIn 1s ease;
 }
 
 header h1 {
   margin: 0;
-  font-size: 1.5em; /* タイトルフォントサイズを少し小さく */
+  font-size: 1.5em;
 }
 
 header p {
   margin: 0;
-  font-size: 0.9em; /* サブテキストのフォントサイズも小さく */
+  font-size: 0.9em;
 }
 
 #demo {
@@ -53,12 +55,14 @@ header p {
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   margin: 20px;
+  box-sizing: border-box;
 }
 
 h2, h3 {
   color: #4caf50;
 }
 
+/* 自動入力枠のスタイル */
 #code-container, #output-container, #test-container {
   background-color: #444;
   padding: 1em;
@@ -66,7 +70,11 @@ h2, h3 {
   margin-top: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   width: 100%;
+  box-sizing: border-box; /* はみ出し防止 */
+  overflow-wrap: break-word; /* 長い内容を折り返し */
+  overflow: hidden;
 }
+
 /* セクションのスタイル */
 section {
   margin-bottom: 20px;
@@ -76,6 +84,8 @@ section {
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 section:hover {
