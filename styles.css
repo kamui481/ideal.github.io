@@ -48,13 +48,13 @@ header p {
 }
 
 #demo {
-  max-width: 100%;
+  max-width: 800px; /* 最大幅を設定して右端を狭く */
   width: 100%;
   padding: 1em;
   background-color: #333;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  margin: 20px;
+  margin: 20px auto; /* 左右の中央揃え */
   box-sizing: border-box;
 }
 
