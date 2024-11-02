@@ -1,129 +1,149 @@
-/* 基本スタイル */
+/* styles.css */
+
 body {
   font-family: Arial, sans-serif;
   color: #e4e4e4;
-  background-color: #222222;
+  background-color: #222;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  padding: 20px;
-  box-sizing: border-box;
 }
 
-#container {
-  max-width: 1200px;
+header {
+  text-align: center;
+  color: #a4d4a4;
+  background-color: #444;
   width: 100%;
-  padding: 20px;
-  background-color: #333333;
+  padding: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#demo {
+  max-width: 600px;
+  width: 100%;
+  padding: 1em;
+  background-color: #333;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  margin: 20px;
 }
 
-/* ヘッダーのスタイル */
-header {
-  background-color: #444444;
-  color: #a4d4a4;
-  text-align: center;
-  padding: 1.5em;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  font-size: 1.8em;
-  font-weight: bold;
+h2, h3 {
+  color: #4caf50;
+  margin-bottom: 0.5em;
 }
 
-/* セクションのスタイル */
-section {
-  margin-bottom: 20px;
-  padding: 1.5em;
-  background-color: #2a2a2a;
-  color: #e4e4e4;
+#code-container, #output-container, #test-container {
+  background-color: #444;
+  padding: 1em;
   border-radius: 8px;
+  margin-top: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
-section h2 {
-  color: #4caf50;
-  border-bottom: 2px solid #4caf50;
-  padding-bottom: 0.3em;
-  margin-bottom: 1em;
-}
-
-/* ポートフォリオ画像のスタイル */
-.portfolio-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-}
-
-/* リストとテキストスタイルの調整 */
-ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin: 1em 0;
-}
-
-li {
-  margin-bottom: 0.5em;
-  line-height: 1.5;
-}
-
-p, a {
-  color: #e4e4e4;
-}
-
-a:hover {
-  color: #4caf50;
-  text-decoration: underline;
-}
-
-/* 各プロジェクトカードのスタイル */
-.project {
-  background-color: #444444;
-  padding: 1.2em;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.project h3 {
+#code-container h3, #output-container h3, #test-container h3 {
   color: #a4d4a4;
-  margin-top: 0;
-  font-size: 1.5em;
+  margin-bottom: 0.3em;
 }
 
-.project p {
-  margin: 0.5em 0;
-  line-height: 1.5;
-}
-
-/* 画像のスタイル */
-.project-img {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  display: block;
-  margin: 0 auto 1em;
-  border-radius: 8px;
-}
-
-/* フッターのスタイル */
-footer {
-  text-align: center;
-  padding: 1em;
-  background-color: #444444;
+pre {
+  font-size: 1em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
   color: #e4e4e4;
-  border-radius: 10px;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  overflow-x: auto;
 }
 
-footer a {
-  color: #4caf50;
+/* ボタンスタイル */
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
 }
-footer a:hover {
-  text-decoration: underline;
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:active {
+  background-color: #3e8e41;
+}
+
+#codeInput {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #e4e4e4;
+  border: 1px solid #555;
+  border-radius: 5px;
+  margin-top: 15px;
+  font-size: 1em;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* アニメーションのテキストカーソル */
+#codeDisplay {
+  font-family: "Courier New", Courier, monospace;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #e4e4e4;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+#codeDisplay::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 18px;
+  background-color: #e4e4e4;
+  margin-left: 2px;
+  animation: blink 0.7s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* 出力結果とテスト結果 */
+#outputDisplay, #testDisplay {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #444;
+  padding: 10px;
+  border-radius: 5px;
+  color: #a4d4a4;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 600px) {
+  #demo {
+    padding: 0.5em;
+  }
+
+  h2, h3 {
+    font-size: 1.2em;
+  }
+
+  button {
+    font-size: 0.9em;
+    padding: 0.4em 0.8em;
+  }
 }
