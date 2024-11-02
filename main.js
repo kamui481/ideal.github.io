@@ -4,11 +4,11 @@
 
 // スライドショー画像のリスト
 const slideshowImages = [
-  "path/to/Paizaレーティング.jpg",
-  "path/to/S007_結果サマリ.png",
-  "path/to/S007_問題文.png", // 特別なタイミング
-  "path/to/S002_結果サマリ.png",
-  "path/to/S002_問題文.png"  // 特別なタイミング
+  "assets/Paizaレーティング.jpg",
+  "assets/S007_結果サマリ.png",
+  "assets/S007_問題文.png", // 特別なタイミング
+  "assets/S002_結果サマリ.png",
+  "assets/S002_問題文.png"  // 特別なタイミング
 ];
 
 let currentImageIndex = 0;
