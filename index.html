@@ -54,46 +54,28 @@
     </ul>
   </section>
 
-  <!-- 実装時のイメージセクション -->
-  <section id="implementation">
-    <h2>実装時のイメージ</h2>
-    <p>このリポジトリは、PAIZA Sランク取得スクリプトをデモするためのポートフォリオページです。GitHub Pagesでのライブデモを体験できます。</p>
+  <header>
+    <h1>PAIZA Sランク取得デモ</h1>
+    <p>自動コード入力と出力結果のデモ</p>
+  </header>
 
-    <h3>使用方法</h3>
-    <ol>
-      <li>テキストエリアにJavaScriptコードを入力してください。</li>
-      <li>「実行」ボタンをクリックすると、出力がリアルタイムで表示されます。</li>
-    </ol>
-
-    <h3>例コード</h3>
-    <pre>
-const greet = (name) => こんにちは、${name}さん！;
-greet('太郎');
-    </pre>
+  <section id="demo">
+    <h2>デモ画面</h2>
+    <div id="code-container">
+      <h3>入力コード</h3>
+      <pre id="codeDisplay"></pre>
+    </div>
+    <div id="output-container">
+      <h3>出力結果</h3>
+      <pre id="outputDisplay"></pre>
+    </div>
+    <div id="test-container">
+      <h3>テスト結果</h3>
+      <pre id="testDisplay"></pre>
+    </div>
   </section>
 
-  <!-- コード実行セクション -->
-  <section id="code-execution">
-    <h2>プログラムコードの実行と出力</h2>
-
-    <textarea id="codeInput" placeholder="ここにJavaScriptコードを入力してください..." rows="5"></textarea>
-    <button onclick="runCode()">実行</button>
-    <div id="output" class="output-display"></div>
-  </section>
-
-  <!-- JavaScriptコード -->
-  <script>
-    function runCode() {
-      const code = document.getElementById('codeInput').value;
-      const outputElement = document.getElementById('output');
-      try {
-        const result = eval(code);
-        outputElement.innerText = result ?? 'undefined';
-      } catch (error) {
-        outputElement.innerText = 'エラー: ' + error.message;
-      }
-    }
-  </script>
+  <script src="main.js"></script>
 
   <!-- 自己紹介セクション -->
   <section id="about">
