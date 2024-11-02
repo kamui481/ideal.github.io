@@ -10,9 +10,89 @@
 
   <!-- ヘッダーセクション -->
   <header>
-    <h1>My Portfolio</h1>
+    <h1>ポートフォリオ</h1>
     <p>技術で未来を切り拓く</p>
   </header>
+
+  <!-- ポートフォリオの目的図 -->
+  <section id="portfolio-goal">
+    <h2>ポートフォリオの目的</h2>
+    <img src="assets/portfolio_diagram.png" alt="ポートフォリオの目的" class="portfolio-img">
+  </section>
+
+  <!-- プロフィールセクション -->
+  <section id="profile">
+    <h2>プロフィール</h2>
+    <p><strong>加口 北人</strong><br>
+       システムエンジニア・プロジェクトマネージャー<br>
+       Paizaランク：Sランク取得</p>
+  </section>
+
+  <!-- スキルセットセクション -->
+  <section id="skills">
+    <h2>スキルセット</h2>
+    <ul>
+      <li><strong>プログラミング言語</strong>: C, C#, Java, PHP, JavaScript, VBA, GAS, RPA</li>
+      <li><strong>フレームワーク・開発環境</strong>: AWS Lambda, DynamoDB, MySQL, kintone, Google Apps Script</li>
+      <li><strong>業務効率化</strong>: 請求書自動生成やデータ処理の自動化システム構築、kintoneによるプロセス管理の最適化</li>
+      <li><strong>データ可視化ツール</strong>: Tableau（AWS・Salesforce連携での大規模データ集計と分析）、Excelマクロ</li>
+      <li><strong>プロジェクト管理ツール</strong>: Backlog, Jira, Confluence</li>
+      <li><strong>ITSM</strong>: ITIL準拠の運用設計、SLA管理、変更管理</li>
+    </ul>
+  </section>
+
+  <!-- 専門スキルセクション -->
+  <section id="expertise">
+    <h2>専門スキル</h2>
+    <ul>
+      <li>フルスタックエンジニアとしての経験: フロントエンドからバックエンドまで一貫して対応可能</li>
+      <li>要件定義と設計: 提案依頼書（RFP）の作成、業務要件の分析と要件定義のリード</li>
+      <li>プロジェクト推進: 複数ベンダーコントロール、進捗管理、品質管理</li>
+      <li>Salesforce: 国の事業におけるプラットフォーム構築</li>
+      <li>Tableau: AWSおよびSalesforce連携によるデータのETL処理とダッシュボード作成</li>
+    </ul>
+  </section>
+
+  <!-- 実装時のイメージセクション -->
+  <section id="implementation">
+    <h2>実装時のイメージ</h2>
+    <p>このリポジトリは、PAIZA Sランク取得スクリプトをデモするためのポートフォリオページです。GitHub Pagesでのライブデモを体験できます。</p>
+
+    <h3>使用方法</h3>
+    <ol>
+      <li>テキストエリアにJavaScriptコードを入力してください。</li>
+      <li>「実行」ボタンをクリックすると、出力がリアルタイムで表示されます。</li>
+    </ol>
+
+    <h3>例コード</h3>
+    <pre>
+const greet = (name) => `こんにちは、${name}さん！`;
+greet('太郎');
+    </pre>
+  </section>
+
+  <!-- コード実行セクション -->
+  <section id="code-execution">
+    <h2>プログラムコードの実行と出力</h2>
+
+    <textarea id="codeInput" placeholder="ここにJavaScriptコードを入力してください..." rows="5"></textarea>
+    <button onclick="runCode()">実行</button>
+    <div id="output" class="output-display"></div>
+  </section>
+
+  <!-- JavaScriptコード -->
+  <script>
+    function runCode() {
+      const code = document.getElementById('codeInput').value;
+      const outputElement = document.getElementById('output');
+      try {
+        const result = eval(code);
+        outputElement.innerText = result ?? 'undefined';
+      } catch (error) {
+        outputElement.innerText = 'エラー: ' + error.message;
+      }
+    }
+  </script>
 
   <!-- 自己紹介セクション -->
   <section id="about">
