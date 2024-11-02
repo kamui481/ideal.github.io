@@ -1,33 +1,30 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9;
-  color: #333;
-}
-
+/* ヘッダーのスタイルを調整 */
 header {
   text-align: center;
   padding: 2em;
   background-color: #4CAF50;
   color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-section {
-  padding: 2em;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-h2 {
-  border-bottom: 2px solid #4CAF50;
-  padding-bottom: 0.3em;
+/* セクションのタイトルの色 */
+section h2 {
   color: #4CAF50;
 }
 
+/* フッターのスタイルを改善 */
 footer {
   text-align: center;
   padding: 1em;
   background-color: #333;
   color: white;
+  font-size: 0.9em;
+}
+
+/* プロジェクトアイテムにマージンとボーダーを追加 */
+section ul li {
+  margin-bottom: 1em;
+  padding: 1em;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
 }
