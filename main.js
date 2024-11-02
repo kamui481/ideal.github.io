@@ -66,7 +66,9 @@ function displayTestData() {
   // 完全な処理を模擬して出力
   setTimeout(() => {
     const result = executeTest(currentTest.input);
-    outputDisplay.textContent = (result === currentTest.expected) ? 'テスト合格: ' + result : 'テスト不合格';
+    outputDisplay.innerText = (result === currentTest.expected) 
+      ? 'テスト合格:\n' + result 
+      : 'テスト不合格';
     testIndex = (testIndex + 1) % testCases.length; // 次のテストケースへ
     setTimeout(startTypingAnimation, 3000); // 次のアニメーション開始
   }, 1000);
