@@ -10,6 +10,8 @@ body {
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
+  width: 100vw; /* 表示領域の幅を100％に設定 */
+  overflow-x: hidden; /* 横スクロールを防止 */
 }
 
 header {
@@ -33,7 +35,7 @@ header p {
 }
 
 #demo {
-  max-width: 600px;
+  max-width: 100%; /* デモの表示領域を100％に設定 */
   width: 100%;
   padding: 1em;
   background-color: #333;
@@ -52,6 +54,7 @@ h2, h3 {
   border-radius: 8px;
   margin-top: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  width: 100%; /* 各コンテナの幅を100％に設定 */
 }
 
 pre {
@@ -59,4 +62,5 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
   color: #e4e4e4;
+  width: 100%; /* pre要素の幅を100％に設定 */
 }
