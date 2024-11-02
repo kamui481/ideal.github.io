@@ -72,7 +72,6 @@ h2, h3 {
   width: 80%;
   box-sizing: border-box;
   overflow-wrap: break-word; /* 長い行を折り返し */
-  white-space: pre-wrap; /* 改行や長いテキストを折り返し */
   word-wrap: break-word; /* はみ出し防止 */
   overflow: hidden;
 }
