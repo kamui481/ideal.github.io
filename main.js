@@ -87,6 +87,14 @@ slideshowElementGroup1.style.height = `${slideshowHeight}px`;
 slideshowElementGroup2.style.width = `${slideshowWidth}px`;
 slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 
+// スライドショーの画像リストと設定
+const slideshowImages = [
+  "assets/Paizaレーティング.jpg",
+  "assets/S007_結果サマリ.png",
+  "assets/S007_問題文.png",
+  "assets/S002_結果サマリ.png",
+  "assets/S002_問題文.png"
+];
 let currentImageIndex = 0;
 let slideshowRepeatCount = 0;
 const maxRepeats = 3; // スライドショーの繰り返し回数
@@ -96,20 +104,21 @@ function changeImage() {
   // 3回繰り返した後、スライドショーを停止して1枚目に固定
   if (slideshowRepeatCount >= maxRepeats) {
     currentImageIndex = 0; // 1枚目の画像に戻す
-    slideshowElementGroup1.src = slideshowImages[currentImageIndex];
-    slideshowElementGroup2.src = slideshowImages[currentImageIndex];
+    document.getElementById("slideshow-image").src = slideshowImages[currentImageIndex]; // 1枚目に設定
     clearInterval(slideshowInterval); // スライドショーを停止
     return;
   }
-    // 画像を切り替える
-  slideshowElementGroup1.src = slideshowImages[currentImageIndex];
-  slideshowElementGroup2.src = slideshowImages[currentImageIndex];
+
+  // 画像を切り替える
+  document.getElementById("slideshow-image").src = slideshowImages[currentImageIndex];
   currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
 
   // スライドショーが一巡した場合、繰り返し回数を増やす
   if (currentImageIndex === 0) {
     slideshowRepeatCount++;
   }
+}
+
 // スライドショー開始
 const slideshowInterval = setInterval(changeImage, 3000);
   
