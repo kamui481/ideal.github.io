@@ -133,5 +133,3 @@ const observer = new MutationObserver(() => {
     changeImage();// 出力結果がクリアされたら画像を切り替え
   }
 });
-// 出力結果の変化を監視する
-observer.observe(outputDisplay, { childList: true, subtree: true });
