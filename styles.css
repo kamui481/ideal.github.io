@@ -228,17 +228,18 @@ footer a:hover {
 
 /* スライドショーグループのレスポンシブ設定 */
 .slideshow-group {
-  width: 100%;
-  max-width: 600px; /* 画像エリアの最大幅を設定 */
-  margin: 0 auto 20px;
-  overflow: hidden;
+  width: 90%; /* 表示エリアの幅を制限 */
+  max-width: 600px; /* 最大幅を設定 */
+  margin: 0 auto; /* 中央寄せ */
+  overflow: hidden; /* はみ出しを防ぐ */
   text-align: center;
 }
 
 /* 画像がエリア内に収まるように調整 */
 .slide {
-  width: 100%; /* エリアに収まるように幅を100% */
-  height: auto; /* アスペクト比を維持 */
+  width: 100%; /* スライド画像がエリア内に収まるように幅を指定 */
+  height: 100%; /* エリアの高さにも合わせる */
+  object-fit: cover; /* 枠内に画像がぴったり収まるように調整 */
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
