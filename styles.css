@@ -34,7 +34,7 @@ body {
 }
 
 /* スライドショー画像のスタイル */
-#slideshow-image1, #slideshow-image2 {
+.slideshow-image1, #slideshow-image2 {
   width: 100%;
   height: auto;
   max-height: 400px; /* 高さ調整 */
@@ -59,7 +59,6 @@ header {
   margin-bottom: 20px;
   font-size: 1.4em;
   font-weight: bold;
-  animation: fadeIn 1s ease;
 }
 
 header h1 {
