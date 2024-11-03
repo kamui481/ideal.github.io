@@ -234,14 +234,6 @@ footer a:hover {
   text-align: center;
 }
 
-/* 画像がエリア内に収まるように調整 */
-.slide {
-  width: 100%; /* スライド画像がエリア内に収まるように幅を指定 */
-  height: 100%; /* エリアの高さにも合わせる */
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-}
-
 .slideshow {
   margin-bottom: 20px;
   text-align: center;
