@@ -228,7 +228,7 @@ footer a:hover {
 /* スライドショーグループのレスポンシブ設定 */
 .slideshow-group {
   width: 100%; /* 表示エリアの幅を制限 */
-  max-width: 800px; /* 最大幅を設定 */
+  max-width: 1000px; /* 最大幅を設定 */
   margin: 0 auto; /* 中央寄せ */
   overflow: hidden; /* はみ出しを防ぐ */
   text-align: center;
