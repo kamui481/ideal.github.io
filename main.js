@@ -76,8 +76,11 @@ const slideshowElement2 = document.getElementById("slideshow-image2");
 
 function startSlideshow() {
   setInterval(() => {
-    slideshowElement1.classList.remove('visible');
-    slideshowElement2.classList.remove('visible');
+    // visible と hidden クラスの切り替え
+    slideshowElement1.classList.toggle('visible');
+    slideshowElement1.classList.toggle('hidden');
+    slideshowElement2.classList.toggle('visible');
+    slideshowElement2.classList.toggle('hidden');
     
     setTimeout(() => {
       currentImageIndex1 = (currentImageIndex1 + 1) % slideshowImages1.length;
@@ -86,8 +89,6 @@ function startSlideshow() {
       slideshowElement1.src = slideshowImages1[currentImageIndex1];
       slideshowElement2.src = slideshowImages2[currentImageIndex2];
       
-      slideshowElement1.classList.add('visible');
-      slideshowElement2.classList.add('visible');
     }, 1000);
   }, 3000);
 }
