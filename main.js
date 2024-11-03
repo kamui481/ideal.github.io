@@ -49,16 +49,16 @@ function startTypingAnimation() {
 function displayTestData() {
   const currentTest = testCases[testIndex];
   testDataDisplay.textContent = `入力データ:\n${currentTest.input}`;
-  
+
   // 完全な処理を模擬して出力
   setTimeout(() => {
     const result = currentTest.expected;
     outputDisplay.innerHTML = `テスト合格:<br>${result.replace(/\n/g, '<br>')}`;
-    
+
     // 次のテストケース・コードに進む
     testIndex = (testIndex + 1) % testCases.length;
     codeIndex = (codeIndex + 1) % codeSamples.length;
-    
+
     setTimeout(startTypingAnimation, 3000); // 次のアニメーション開始
   }, 1000);
 }
@@ -87,30 +87,13 @@ slideshowElementGroup1.style.height = `${slideshowHeight}px`;
 slideshowElementGroup2.style.width = `${slideshowWidth}px`;
 slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 
-
-let currentImageIndex = 0;
-let slideshowRepeatCount = 0;
-const maxRepeats = 1; // スライドショーの繰り返し回数
+// 画像切り替え関数
 function changeImage() {
-  // 3回繰り返した後、スライドショーを停止して1枚目に固定
-  if (slideshowRepeatCount >= maxRepeats) {
-    currentImageIndex = 0; // 1枚目の画像に戻す
-    slideshowElementGroup1.src = slideshowImages[currentImageIndex];
-    slideshowElementGroup2.src = slideshowImages[currentImageIndex];
-    clearInterval(slideshowInterval); // スライドショーを停止
-    return;
+  if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
+    isWaitingForOutputClear = true;
+    return; // 出力結果が消えるまで切り替えを待つ
   }
-    // 画像を切り替える
-  slideshowElementGroup1.src = slideshowImages[currentImageIndex];
-  slideshowElementGroup2.src = slideshowImages[currentImageIndex];
 
-  // スライドショーが一巡した場合、繰り返し回数を増やす
-  if (currentImageIndex === 0) {
-    slideshowRepeatCount++;
-  }
-// スライドショー開始
-const slideshowInterval = setInterval(changeImage, 3000);
-  
   currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
   slideshowElement.src = slideshowImages[currentImageIndex];
   isWaitingForOutputClear = false;
