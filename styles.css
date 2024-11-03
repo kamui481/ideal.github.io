@@ -1,4 +1,4 @@
-/* 基本スタイル */
+  /* 基本スタイル */
 body {
   font-family: Arial, sans-serif;
   color: #e4e4e4;
@@ -14,42 +14,24 @@ body {
 }
 
 #container {
-  max-width: 1000px;
-  width: 100%;
-  padding: 20px;
-  background-color: #333333;
-  border-radius: 10px;
-  box-sizing: border-box;
-  overflow: hidden; /* はみ出し防止 */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  max-width: 800px;
 }
 
-/* スライドショーコンテナ */
 .slideshow-container {
   position: relative;
   width: 100%;
-  max-width: 800px;
-  margin: 20px auto; /* 上下にスペースを追加 */
+  margin: 20px 0;
   overflow: hidden;
   text-align: center;
 }
 
-#slideshowImages {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  overflow: hidden;
-  text-align: center;
-}
-
-/* スライドショー画像のスタイル */
 .slideshow-image {
   width: 100%;
   height: auto;
-  max-height: 400px; /* 高さの上限 */
-  object-fit: contain; /* 画像のアスペクト比を保持しながら枠内に収める */
-  transition: opacity 1s ease-in-out; /* フェード効果を追加 */
+  max-height: 400px;
+  object-fit: contain;
+  transition: opacity 1s ease-in-out;
   opacity: 1;
   position: absolute;
   top: 0;
@@ -58,9 +40,7 @@ body {
 
 .slideshow-image.visible {
   opacity: 1;
-  z-index: 1; /* 前面に表示 */
 }
-
 /* ヘッダーのスタイル（コンパクト） */
 header {
   background-color: #444444;
