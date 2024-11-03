@@ -117,7 +117,6 @@ function executeTest(inputData) {
 // 初回アニメーション開始
 startTypingAnimation();
 
-
 // =============================
 // スライドショーの設定
 // =============================
