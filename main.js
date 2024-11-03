@@ -65,33 +65,3 @@ function displayTestData() {
 
 // 初回アニメーション開始
 startTypingAnimation();
-
-// =============================
-// スライドショーの設定
-// =============================
-
-// スライドショーの表示サイズをユーザーが指定
-const slideshowWidth = 1400;  // 幅を指定（ピクセル単位）
-const slideshowHeight = 450;  // 高さを指定（ピクセル単位）
-
-// スライドショー要素の取得
-const slideshowElementGroup1 = document.getElementById("slideshow-group-1");
-const slideshowElementGroup2 = document.getElementById("slideshow-group-2");
-const slideshowImageElement = document.querySelector("#slideshow-group-1 img");  // グループ内の最初の画像要素を取得
-
-// スライドショー領域のサイズを固定
-slideshowElementGroup1.style.width = `${slideshowWidth}px`;
-slideshowElementGroup1.style.height = `${slideshowHeight}px`;
-slideshowElementGroup2.style.width = `${slideshowWidth}px`;
-slideshowElementGroup2.style.height = `${slideshowHeight}px`;
-
-// スライドショーの画像リストと設定
-const slideshowImages = [
-  "assets/Paizaレーティング.jpg",
-  "assets/S007_結果サマリ.png",
-  "assets/S002_結果サマリ.png"
-];
-let currentImageIndex = 0;
-const slideInterval = 3000; // 画像を切り替える間隔（ミリ秒）
-const stopAfter = slideInterval * 1; // 3回分の時間（ここでは9秒後に停止）
-
