@@ -75,7 +75,7 @@ const slideshowElement = document.getElementById("slideshow-group-1");
 
 // スライドショーの表示サイズをユーザーが指定
 const slideshowWidth = 800;  // 幅を指定（ピクセル単位）
-const slideshowHeight = 450; // 高さを指定（ピクセル単位）
+const slideshowHeight = 800; // 高さを指定（ピクセル単位）
 
 // スライドショー要素の取得
 const slideshowElementGroup1 = document.getElementById("slideshow-group-1");
