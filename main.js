@@ -65,51 +65,52 @@ function displayTestData() {
 
 // 初回アニメーション開始
 startTypingAnimation();
-
-// =============================
-// スライドショーの設定
-// =============================
-
-const slideshowImages = [
+// スライドショーの初期設定と画像リスト
+const slideshowImages1 = [
   "assets/Paizaレーティング.jpg",
   "assets/S007_結果サマリ.png",
-  "assets/S007_問題文.png", // 特別なタイミング
-  "assets/S002_結果サマリ.png",
-  "assets/S002_問題文.png" // 特別なタイミング
+  "assets/S002_結果サマリ.png"
+];
+const slideshowImages2 = [
+  "assets/S007_問題文.png",
+  "assets/S002_問題文.png"
 ];
 
-let currentImageIndex = 0;
+let currentImageIndex1 = 0;
+let currentImageIndex2 = 0;
 const slideshowElement1 = document.getElementById("slideshow-image1");
 const slideshowElement2 = document.getElementById("slideshow-image2");
-let activeImage = 1; // 現在表示中の画像番号（1 or 2）
 let isWaitingForOutputClear = false;
+
+// 初期設定: slideshowElement1 に最初の画像を表示
+slideshowElement1.src = slideshowImages1[currentImageIndex1];
+slideshowElement1.classList.add('visible');
 
 // 画像をフェードイン・フェードアウトしながら切り替える関数
 function changeImage() {
-  // 3枚目と5枚目は「出力結果のクリア」待ち
-  if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
-    isWaitingForOutputClear = true;
+  // 出力結果がクリアされたら slideshowElement2 の画像をフェードアウトし、slideshowElement1 に戻す
+  if (isWaitingForOutputClear && isOutputCleared()) {
+    slideshowElement2.classList.remove('visible');
+    slideshowElement1.classList.add('visible');
+    currentImageIndex1 = (currentImageIndex1 + 1) % slideshowImages1.length;
+    slideshowElement1.src = slideshowImages1[currentImageIndex1];
+    isWaitingForOutputClear = false;
     return;
   }
 
-  // 次の画像インデックスを設定
-  currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
-  const nextImageSrc = slideshowImages[currentImageIndex];
-
-  // アクティブ画像を切り替え
-  if (activeImage === 1) {
-    slideshowElement2.src = nextImageSrc;
-    slideshowElement2.classList.add("visible");
-    slideshowElement1.classList.remove("visible");
-    activeImage = 2;
+  // 3枚目と5枚目（問題文の画像）の場合、slideshowElement2 を表示
+  if (currentImageIndex1 === 1 || currentImageIndex1 === 2) {
+    slideshowElement2.src = slideshowImages2[currentImageIndex2];
+    slideshowElement1.classList.remove('visible'); // slideshowElement1 をフェードアウト
+    slideshowElement2.classList.add('visible'); // slideshowElement2 をフェードイン
+    currentImageIndex2 = (currentImageIndex2 + 1) % slideshowImages2.length;
+    isWaitingForOutputClear = true;
   } else {
-    slideshowElement1.src = nextImageSrc;
-    slideshowElement1.classList.add("visible");
-    slideshowElement2.classList.remove("visible");
-    activeImage = 1;
+    // slideshowElement1 の次の画像に移行
+    currentImageIndex1 = (currentImageIndex1 + 1) % slideshowImages1.length;
+    slideshowElement1.src = slideshowImages1[currentImageIndex1];
+    slideshowElement1.classList.add('visible');
   }
-
-  isWaitingForOutputClear = false; // クリア待機を解除
 }
 
 // 出力結果がクリアされているかを確認する関数
@@ -117,7 +118,7 @@ function isOutputCleared() {
   return outputDisplay.textContent.trim() === '';
 }
 
-// 出力結果のクリアを待つ
+// 出力結果のクリアを待つための監視
 const observer = new MutationObserver(() => {
   if (isWaitingForOutputClear && isOutputCleared()) {
     changeImage(); // 出力結果がクリアされたら画像を切り替え
@@ -125,18 +126,12 @@ const observer = new MutationObserver(() => {
 });
 observer.observe(outputDisplay, { childList: true, subtree: true });
 
-// スライドショーの初期設定
-function startSlideshow() {
-  slideshowElement1.src = slideshowImages[currentImageIndex];
-  slideshowElement1.classList.add('visible'); // 初回フェードイン
-
-  // 3秒ごとに画像を切り替え
-  setInterval(() => {
-    if (!isWaitingForOutputClear) {
-      changeImage();
-    }
-  }, 3000);
-}
+// 3秒ごとに通常の画像を切り替え
+setInterval(() => {
+  if (!isWaitingForOutputClear) {
+    changeImage();
+  }
+}, 3000);
 
 // 初回のスライドショー開始
 startSlideshow();
