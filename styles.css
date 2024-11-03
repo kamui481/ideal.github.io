@@ -229,35 +229,24 @@ footer a:hover {
 /* スライドショーグループのレスポンシブ設定 */
 .slideshow-group {
   width: 100%;
-  max-width: 600px; /* 最大幅を設定 */
+  max-width: 600px; /* 画像エリアの最大幅を設定 */
   margin: 0 auto 20px;
-  overflow: hidden; /* エリア外の部分は非表示 */
+  overflow: hidden;
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #444444; /* 背景色を追加して画像枠を視覚的に確認可能 */
-  padding: 10px; /* 枠内の余白を追加 */
-  border-radius: 8px; /* 枠に丸みを追加 */
-  box-sizing: border-box; /* パディングを含む全体のサイズを制御 */
 }
 
-/* 画像が枠内に確実に収まるように調整 */
+/* 画像がエリア内に収まるように調整 */
 .slide {
-  width: 100%;
-  height: auto;
-  max-height: 100%; /* 縦の制限も追加 */
-  object-fit: contain; /* 画像を枠内に収め、縦横比を維持 */
+  width: 100%; /* エリアに収まるように幅を100% */
+  height: auto; /* アスペクト比を維持 */
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease; /* 変形のスムーズなトランジション */
 }
 
-/* 画面サイズに応じたレスポンシブ対応 */
+/* レスポンシブデザインの追加設定 */
 @media (max-width: 768px) {
-  .slideshow-group {
-    max-width: 90%; /* モバイルでエリアを少し小さめに */
-    padding: 5px; /* 余白を減らす */
+  #container {
+    padding: 10px;
   }
   .slideshow-group {
     max-width: 90%; /* 小さい画面でスライドエリア幅を縮小 */
