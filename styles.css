@@ -243,21 +243,3 @@ footer a:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* レスポンシブデザインの追加設定 */
-@media (max-width: 768px) {
-  #container {
-    padding: 10px;
-  }
-  .slideshow-group {
-    max-width: 90%; /* 小さい画面でスライドエリア幅を縮小 */
-  }
-  header, section, footer {
-    padding: 1em;
-  }
-  section h2 {
-    font-size: 1.4em;
-  }
-  button {
-    font-size: 0.9em;
-  }
-}
