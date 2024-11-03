@@ -95,20 +95,3 @@ let currentImageIndex = 0;
 const slideInterval = 3000; // 画像を切り替える間隔（ミリ秒）
 const stopAfter = slideInterval * 1; // 3回分の時間（ここでは9秒後に停止）
 
-
-// スライドショーの画像を切り替える関数
-function changeImage() {
-  slideshowImageElement.src = slideshowImages[currentImageIndex];
-  currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
-}
-
-// スライドショー開始
-const slideshowInterval = setInterval(changeImage, slideInterval);
-
-// 一定時間後にスライドショーを停止し、1枚目の画像に固定
-setTimeout(() => {
-  clearInterval(slideshowInterval); // スライドショーを停止
-  currentImageIndex = 0; // 1枚目の画像に戻す
-  slideshowImageElement.src = slideshowImages[currentImageIndex]; // 1枚目に設定
-  console.log("スライドショーが停止しました。1枚目の画像で固定されています。");
-}, stopAfter);
