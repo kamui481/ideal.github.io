@@ -228,7 +228,7 @@ footer a:hover {
 /* スライドショーグループのレスポンシブ設定 */
 .slideshow-group {
   width: 100%;
-  max-width: 600px; /* 最大幅を設定 */
+  max-width: 1000px; /* 最大幅を設定 */
   margin: 0 auto 20px; /* 中央寄せと下部の余白 */
   display: flex;
   justify-content: center;
@@ -246,7 +246,7 @@ footer a:hover {
   height: 100%; /* 画像が枠高さいっぱいに収まるように */
   object-fit: cover; /* 画像を枠にぴったり収める */
   border-radius: 8px;
-  transition: transform 0.8s ease; /* スムーズな変形のトランジション */
+  transition: transform 2.6s ease; /* スムーズな変形のトランジション */
 }
 
 /* 画面サイズに応じたレスポンシブ対応 */
