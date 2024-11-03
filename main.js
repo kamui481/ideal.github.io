@@ -80,23 +80,33 @@ const slideshowImages = [
 
 let currentImageIndex = 0;
 const slideshowElement = document.getElementById("slideshow-image");
-let isWaitingForOutputClear = false;// 出力結果が消えるのを待機中かどうか
+let isWaitingForOutputClear = false;
 
-// スライドショーの画像を切り替える関数
+// 画像のフェードイン・フェードアウト効果を追加した画像切り替え関数
 function changeImage() {
-  if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
-    isWaitingForOutputClear = true;
-    return;// 出力結果が消えるまで切り替えを待つ
-  }
+  // フェードアウト
+  slideshowElement.classList.remove('fade-in');
+  
+  setTimeout(() => {
+    // 現在の画像が3枚目または5枚目の場合、出力結果のクリアを待つ
+    if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
+      isWaitingForOutputClear = true;
+      return; // 出力結果が消えるまで切り替えを待つ
+    }
 
-  currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
-  slideshowElement.src = slideshowImages[currentImageIndex];
-  isWaitingForOutputClear = false;
+    // 次の画像に切り替え
+    currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+    slideshowElement.src = slideshowImages[currentImageIndex];
+    isWaitingForOutputClear = false;
+
+    // フェードイン
+    slideshowElement.classList.add('fade-in');
+  }, 500); // フェードアウト後の切り替えタイミング
 }
 
 // 出力結果がクリアされているかをチェックする関数
 function isOutputCleared() {
-  return outputDisplay.textContent.trim() === '';// 出力結果が空ならtrue
+  return outputDisplay.textContent.trim() === ''; // 出力結果が空ならtrue
 }
 
 // 3秒ごとに通常の画像を切り替え
