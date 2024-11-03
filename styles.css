@@ -1,46 +1,24 @@
-  /* 基本スタイル */
+/* 基本スタイル */
+/* ベースレイアウトのレスポンシブ対応 */
 body {
-  font-family: Arial, sans-serif;
-  color: #e4e4e4;
-  background-color: #222222;
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
+  flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
 }
 
 #container {
-  width: 80%;
-  max-width: 800px;
-}
-
-.slideshow-container {
-  position: relative;
   width: 100%;
-  margin: 20px 0;
+  max-width: 1000px; /* 最大幅を設定 */
+  padding: 20px;
+  background-color: #333333;
+  border-radius: 10px;
+  box-sizing: border-box;
   overflow: hidden;
-  text-align: center;
 }
 
-.slideshow-image {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: contain;
-  transition: opacity 1s ease-in-out;
-  opacity: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.slideshow-image.visible {
-  opacity: 1;
-}
 /* ヘッダーのスタイル（コンパクト） */
 header {
   background-color: #444444;
@@ -51,6 +29,7 @@ header {
   margin-bottom: 20px;
   font-size: 1.4em;
   font-weight: bold;
+  animation: fadeIn 1s ease;
 }
 
 header h1 {
@@ -244,5 +223,52 @@ footer a:hover {
   }
   to {
     opacity: 1;
+  }
+}
+
+/* スライドショーグループのレスポンシブ設定 */
+.slideshow-group {
+  width: 100%;
+  max-width: 600px; /* 最大幅を設定 */
+  margin: 0 auto 20px;
+  overflow: hidden; /* エリア外の部分は非表示 */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #444444; /* 背景色を追加して画像枠を視覚的に確認可能 */
+  padding: 10px; /* 枠内の余白を追加 */
+  border-radius: 8px; /* 枠に丸みを追加 */
+  box-sizing: border-box; /* パディングを含む全体のサイズを制御 */
+}
+
+/* 画像が枠内に確実に収まるように調整 */
+.slide {
+  width: 100%;
+  height: auto;
+  max-height: 100%; /* 縦の制限も追加 */
+  object-fit: contain; /* 画像を枠内に収め、縦横比を維持 */
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease; /* 変形のスムーズなトランジション */
+}
+
+/* 画面サイズに応じたレスポンシブ対応 */
+@media (max-width: 768px) {
+  .slideshow-group {
+    max-width: 90%; /* モバイルでエリアを少し小さめに */
+    padding: 5px; /* 余白を減らす */
+  }
+  .slideshow-group {
+    max-width: 90%; /* 小さい画面でスライドエリア幅を縮小 */
+  }
+  header, section, footer {
+    padding: 1em;
+  }
+  section h2 {
+    font-size: 1.4em;
+  }
+  button {
+    font-size: 0.9em;
   }
 }
