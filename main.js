@@ -91,13 +91,11 @@ slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 const slideshowImages = [
   "assets/Paizaレーティング.jpg",
   "assets/S007_結果サマリ.png",
-  "assets/S007_問題文.png",
   "assets/S002_結果サマリ.png",
-  "assets/S002_問題文.png"
 ];
 let currentImageIndex = 0;
 let slideshowRepeatCount = 0;
-const maxRepeats = 3; // スライドショーの繰り返し回数
+const maxRepeats = 2; // スライドショーの繰り返し回数
 
 // スライドショーの画像を切り替える関数
 function changeImage() {
