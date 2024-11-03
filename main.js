@@ -130,7 +130,7 @@ function startSlideshow(slideClass) {
 }
 
 // 1枚目、2枚目、4枚目のスライドショー開始
-startSlideshow('slide-1');
+startSlideshow('slideshow-group-1', 'slide-1');
 
-// 3枚目と5枚のスライドショー開始
-startSlideshow('slide-2');
+// 3枚目と5枚目のスライドショー開始
+startSlideshow('slideshow-group-2', 'slide-2');
