@@ -80,20 +80,22 @@ const slideshowImages = [
 
 let currentImageIndex = 0;
 const slideshowElement = document.getElementById("slideshow-image");
-const outputDisplay = document.getElementById('outputDisplay');
 let isWaitingForOutputClear = false;
 
 // 画像をフェードイン・フェードアウトしながら切り替える関数
 function changeImage() {
-  slideshowElement.classList.remove('visible'); // フェードアウト
-
   setTimeout(() => {
     // 3枚目と5枚目は「出力結果のクリア」待ち
     if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
       isWaitingForOutputClear = true;
       return;
     }
+    
+  // フェードアウト開始
+  slideshowElement.classList.remove('visible'); 
 
+  // フェードアウトが終わった後に画像を切り替え
+  setTimeout(() => {
     // 次の画像に切り替え
     currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
     slideshowElement.src = slideshowImages[currentImageIndex];
@@ -117,19 +119,20 @@ const observer = new MutationObserver(() => {
 });
 observer.observe(outputDisplay, { childList: true, subtree: true });
 
-// 3秒ごとに通常の画像を切り替え
-setInterval(() => {
-  if (!isWaitingForOutputClear) {
-    changeImage();
-  }
-}, 3000);
+// スライドショーの初期設定
+function startSlideshow() {
+  // 初回の画像を表示
+  slideshowElement.src = slideshowImages[currentImageIndex];
+  slideshowElement.classList.add('visible');
+
+  // 3秒ごとに画像を切り替え
+  setInterval(() => {
+    if (!isWaitingForOutputClear) {
+      changeImage();
+    }
+  }, 3000);
+}
 
 // 初回のスライドショー開始
 startSlideshow();
 
-// 出力結果がクリアされたときに画像を切り替える
-const observer = new MutationObserver(() => {
-  if (isWaitingForOutputClear && isOutputCleared()) {
-    changeImage();// 出力結果がクリアされたら画像を切り替え
-  }
-});
