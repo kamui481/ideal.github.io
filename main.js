@@ -75,7 +75,7 @@ const slideshowElement = document.getElementById("slideshow-group-1");
 
 // 最大サイズの画像を取得して基準サイズを設定
 const largestImage = new Image();
-largestImage.src = "assets/Paizaレーティング.jpg"; // 最大サイズの画像を指定
+largestImage.src = "assets/S007_結果サマリ.png"; // 最大サイズの画像を指定
 largestImage.onload = function() {
   // 画像読み込み後、スライドショー領域のサイズを固定
   slideshowElement.style.width = `${largestImage.width}px`;
