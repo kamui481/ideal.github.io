@@ -66,31 +66,61 @@ function displayTestData() {
 // 初回アニメーション開始
 startTypingAnimation();
 
-// スライドショー制御
-const slideshowImages1 = ["assets/Paizaレーティング.jpg", "assets/S007_結果サマリ.png"];
-const slideshowImages2 = ["assets/S007_問題文.png", "assets/S002_問題文.png"];
+// スライドショー1と2の画像リスト
+const slideshowImages1 = [
+  "assets/Paizaレーティング.jpg",
+  "assets/S007_結果サマリ.png",
+  "assets/S002_結果サマリ.png"
+];
+const slideshowImages2 = [
+  "assets/S007_問題文.png",
+  "assets/S002_問題文.png"
+];
+
 let currentImageIndex1 = 0;
 let currentImageIndex2 = 0;
 const slideshowElement1 = document.getElementById("slideshow-image1");
 const slideshowElement2 = document.getElementById("slideshow-image2");
+// 初期設定: slideshowElement1 と slideshowElement2 に最初の画像を表示
+slideshowElement1.src = slideshowImages1[currentImageIndex1];
+slideshowElement2.src = slideshowImages2[currentImageIndex2];
+slideshowElement1.classList.add('visible');
+slideshowElement2.classList.add('visible');
 
-function startSlideshow() {
+// スライドショー1の制御関数
+function startSlideshow1() {
   setInterval(() => {
-    // visible と hidden クラスの切り替え
-    slideshowElement1.classList.toggle('visible');
-    slideshowElement1.classList.toggle('hidden');
-    slideshowElement2.classList.toggle('visible');
-    slideshowElement2.classList.toggle('hidden');
-    
-    setTimeout(() => {
-      currentImageIndex1 = (currentImageIndex1 + 1) % slideshowImages1.length;
-      currentImageIndex2 = (currentImageIndex2 + 1) % slideshowImages2.length;
+    // visible クラスの切り替え
+    slideshowElement1.classList.remove('visible');
 
+    setTimeout(() => {
+      // 画像のインデックスを更新
+      currentImageIndex1 = (currentImageIndex1 + 1) % slideshowImages1.length;
+
+      // 次の画像に切り替え
       slideshowElement1.src = slideshowImages1[currentImageIndex1];
-      slideshowElement2.src = slideshowImages2[currentImageIndex2];
-      
-    }, 1000);
-  }, 3000);
+      slideshowElement1.classList.add('visible');
+    }, 1000); // フェードアウト後に画像切り替え
+  }, 3000); // 3秒ごとにスライドを変更
 }
 
-startSlideshow();
+// スライドショー2の制御関数
+function startSlideshow2() {
+  setInterval(() => {
+    // visible クラスの切り替え
+    slideshowElement2.classList.remove('visible');
+
+    setTimeout(() => {
+      // 画像のインデックスを更新
+      currentImageIndex2 = (currentImageIndex2 + 1) % slideshowImages2.length;
+
+      // 次の画像に切り替え
+      slideshowElement2.src = slideshowImages2[currentImageIndex2];
+      slideshowElement2.classList.add('visible');
+    }, 1000); // フェードアウト後に画像切り替え
+  }, 3000); // 3秒ごとにスライドを変更
+}
+
+// 初回のスライドショー開始
+startSlideshow1();
+startSlideshow2();
