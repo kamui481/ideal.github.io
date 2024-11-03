@@ -41,7 +41,7 @@ body {
 }
 
 #slideshow-image1, #slideshow-image2 {
-  opacity: 0;
+  opacity: 1;
   z-index: 0;
 }
 
