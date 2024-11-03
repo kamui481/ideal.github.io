@@ -66,61 +66,71 @@ function displayTestData() {
 // 初回アニメーション開始
 startTypingAnimation();
 
-// スライドショー1と2の画像リスト
-const slideshowImages1 = [
+// =============================
+// スライドショーの設定
+// =============================
+
+const slideshowImages = [
   "assets/Paizaレーティング.jpg",
   "assets/S007_結果サマリ.png",
-  "assets/S002_結果サマリ.png"
-];
-const slideshowImages2 = [
-  "assets/S007_問題文.png",
-  "assets/S002_問題文.png"
+  "assets/S007_問題文.png",// 特別なタイミング
+  "assets/S002_結果サマリ.png",
+  "assets/S002_問題文.png"// 特別なタイミング
 ];
 
-let currentImageIndex1 = 0;
-let currentImageIndex2 = 0;
-const slideshowElement1 = document.getElementById("slideshow-image1");
-const slideshowElement2 = document.getElementById("slideshow-image2");
-// 初期設定: slideshowElement1 と slideshowElement2 に最初の画像を表示
-slideshowElement1.src = slideshowImages1[currentImageIndex1];
-slideshowElement2.src = slideshowImages2[currentImageIndex2];
-slideshowElement1.classList.add('visible');
-slideshowElement2.classList.add('visible');
+let currentImageIndex = 0;
+const slideshowElement = document.getElementById("slideshow-image");
+let isWaitingForOutputClear = false;// 出力結果が消えるのを待機中かどうか
 
-// スライドショー1の制御関数
-function startSlideshow1() {
-  setInterval(() => {
-    // visible クラスの切り替え
-    slideshowElement1.classList.remove('visible');
+// スライドショーの画像を切り替える関数
+function changeImage() {
+  if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
+    isWaitingForOutputClear = true;
+    return;// 出力結果が消えるまで切り替えを待つ
+  }
 
-    setTimeout(() => {
-      // 画像のインデックスを更新
-      currentImageIndex1 = (currentImageIndex1 + 1) % slideshowImages1.length;
-
-      // 次の画像に切り替え
-      slideshowElement1.src = slideshowImages1[currentImageIndex1];
-      slideshowElement1.classList.add('visible');
-    }, 1000); // フェードアウト後に画像切り替え
-  }, 3000); // 3秒ごとにスライドを変更
+  currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+  slideshowElement.src = slideshowImages[currentImageIndex];
+  isWaitingForOutputClear = false;
 }
 
-// スライドショー2の制御関数
-function startSlideshow2() {
-  setInterval(() => {
-    // visible クラスの切り替え
-    slideshowElement2.classList.remove('visible');
-
-    setTimeout(() => {
-      // 画像のインデックスを更新
-      currentImageIndex2 = (currentImageIndex2 + 1) % slideshowImages2.length;
-
-      // 次の画像に切り替え
-      slideshowElement2.src = slideshowImages2[currentImageIndex2];
-      slideshowElement2.classList.add('visible');
-    }, 1000); // フェードアウト後に画像切り替え
-  }, 3000); // 3秒ごとにスライドを変更
+// 出力結果がクリアされているかをチェックする関数
+function isOutputCleared() {
+  return outputDisplay.textContent.trim() === '';// 出力結果が空ならtrue
 }
 
-// 初回のスライドショー開始
-startSlideshow1();
-startSlideshow2();
+// 3秒ごとに通常の画像を切り替え
+setInterval(() => {
+  if (!isWaitingForOutputClear) {
+    changeImage();
+  }
+}, 3000);
+
+// 出力結果がクリアされたときに画像を切り替える
+const observer = new MutationObserver(() => {
+  if (isWaitingForOutputClear && isOutputCleared()) {
+    changeImage();// 出力結果がクリアされたら画像を切り替え
+  }
+});
+// 出力結果の変化を監視する
+observer.observe(outputDisplay, { childList: true, subtree: true });
+
+function startSlideshow(slideClass) {
+  let currentIndex = 0;
+  const slides = document.querySelectorAll(`.${slideClass}`);
+
+  function showSlide() {
+    slides.forEach((slide, index) => {
+      slide.style.display = (index === currentIndex) ? 'block' : 'none';
+    });
+    currentIndex = (currentIndex + 1) % slides.length;
+  }
+
+  setInterval(showSlide, 3000);
+}
+
+// 1枚目、2枚目、4枚目のスライドショー開始
+startSlideshow('slide-1');
+
+// 3枚目と5枚のスライドショー開始
+startSlideshow('slide-2');
