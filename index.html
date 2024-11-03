@@ -60,17 +60,19 @@
       <h1>PAIZA Sランク取得デモ</h1>
       <p>自動コード入力と出力結果のデモ</p>
       <!-- スライドショー画像の表示 -->
-    </header>
-    
-    <!-- スライドショー1 -->
-    <div id="slideshow1" class="slideshow-container">
-      <img id="slideshow-image1" class="slideshow-image visible" src="assets/Paizaレーティング.jpg" alt="スライドショー画像1">
-    </div>
+      <!-- 1枚目、2枚目、4枚目 表示エリア -->
+      <div id="slideshow-group-1" class="slideshow-group">
+        <img src="assets/Paizaレーティング.jpg" alt="スライドショー画像1" class="slide slide-1" style="display: block;">
+        <img src="assets/S007_結果サマリ.png" alt="スライドショー画像2" class="slide slide-1" style="display: none;">
+        <img src="assets/S002_結果サマリ.png" alt="スライドショー画像4" class="slide slide-1" style="display: none;">
+      </div>
 
-    <!-- スライドショー2 -->
-    <div id="slideshow2" class="slideshow-container">
-      <img id="slideshow-image2" class="slideshow-image visible" src="assets/S007_問題文.png" alt="スライドショー画像2">
-    </div>
+      <!-- 3枚目と5枚 表示エリア -->
+      <div id="slideshow-group-2" class="slideshow-group">
+        <img src="assets/S007_問題文.png" alt="スライドショー画像3" class="slide slide-2" style="display: block;">
+        <img src="assets/S002_問題文.png" alt="スライドショー画像5" class="slide slide-2" style="display: none;">
+      </div>
+    </header>
     
     <!-- デモ画面セクション -->
     <section id="demo">
