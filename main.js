@@ -124,6 +124,9 @@ setInterval(() => {
   }
 }, 3000);
 
+// 初回のスライドショー開始
+startSlideshow();
+
 // 出力結果がクリアされたときに画像を切り替える
 const observer = new MutationObserver(() => {
   if (isWaitingForOutputClear && isOutputCleared()) {
