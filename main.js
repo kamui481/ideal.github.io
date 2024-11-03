@@ -73,15 +73,15 @@ startTypingAnimation();
 const slideshowImages = [
   "assets/Paizaレーティング.jpg",
   "assets/S007_結果サマリ.png",
-  "assets/S007_問題文.png",// 特別なタイミング
+  "assets/S007_問題文.png", // 特別なタイミング
   "assets/S002_結果サマリ.png",
-  "assets/S002_問題文.png"// 特別なタイミング
+  "assets/S002_問題文.png" // 特別なタイミング
 ];
 
 let currentImageIndex = 0;
-let activeImage = 1; // 現在表示中の画像番号（1 or 2）
 const slideshowElement1 = document.getElementById("slideshow-image1");
 const slideshowElement2 = document.getElementById("slideshow-image2");
+let activeImage = 1; // 現在表示中の画像番号（1 or 2）
 let isWaitingForOutputClear = false;
 
 // 画像をフェードイン・フェードアウトしながら切り替える関数
@@ -127,9 +127,8 @@ observer.observe(outputDisplay, { childList: true, subtree: true });
 
 // スライドショーの初期設定
 function startSlideshow() {
-  // 初回の画像を表示
-  slideshowElement.src = slideshowImages[currentImageIndex];
-  slideshowElement.classList.add('visible');
+  slideshowElement1.src = slideshowImages[currentImageIndex];
+  slideshowElement1.classList.add('visible'); // 初回フェードイン
 
   // 3秒ごとに画像を切り替え
   setInterval(() => {
@@ -141,4 +140,3 @@ function startSlideshow() {
 
 // 初回のスライドショー開始
 startSlideshow();
-
