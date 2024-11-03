@@ -229,6 +229,7 @@ footer a:hover {
 .slideshow-group {
   width: 100%;
   max-width: 600px; /* 最大幅を設定 */
+  aspect-ratio: 16 / 9; /* アスペクト比を固定 */
   margin: 0 auto 20px; /* 中央寄せと下部の余白 */
   display: flex;
   justify-content: center;
@@ -242,12 +243,11 @@ footer a:hover {
 
 /* 画像が枠内に確実に収まるように調整 */
 .slide {
-  width: 100%;
-  max-height: 100%; /* 縦の制限も追加 */
-  object-fit: contain; /* 画像を枠内に収め、縦横比を維持 */
+  width: 100%; /* 画像が枠幅いっぱいに収まるように */
+  height: 100%; /* 画像が枠高さいっぱいに収まるように */
+  object-fit: cover; /* 画像を枠にぴったり収める */
   border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-  transition: transform 0.8s ease; /* 変形のスムーズなトランジション */
+  transition: transform 0.8s ease; /* スムーズな変形のトランジション */
 }
 
 /* 画面サイズに応じたレスポンシブ対応 */
