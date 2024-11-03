@@ -24,6 +24,16 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* スライドショーコンテナ */
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto; /* 上下にスペースを追加 */
+  overflow: hidden;
+  text-align: center;
+}
+
 #slideshowImages {
   position: relative;
   width: 100%;
