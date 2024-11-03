@@ -20,7 +20,7 @@ body {
   background-color: #333333;
   border-radius: 10px;
   box-sizing: border-box;
-  overflow: hidden; /* はみ出し防止 */
+  overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -47,14 +47,38 @@ header p {
   font-size: 0.9em;
 }
 
+/* スライドショーのスタイル */
+#slideshow {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
 #demo {
-  max-width: 800px; /* 最大幅を設定して右端を狭く */
+  max-width: 800px;
   width: 100%;
   padding: 1em;
   background-color: #333;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  margin: 20px auto; /* 左右の中央揃え */
+  margin: 20px auto;
   box-sizing: border-box;
 }
 
@@ -71,8 +95,8 @@ h2, h3 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
   width: 95%;
   box-sizing: border-box;
-  overflow-wrap: break-word; /* 長い行を折り返し */
-  word-wrap: break-word; /* はみ出し防止 */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
   overflow: hidden;
 }
 
