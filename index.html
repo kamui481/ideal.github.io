@@ -66,14 +66,7 @@
         <img src="assets/S007_結果サマリ.png" alt="スライドショー画像2" class="slide slide-1" style="display: none;">
         <img src="assets/S002_結果サマリ.png" alt="スライドショー画像4" class="slide slide-1" style="display: none;">
       </div>
-
     </header>
-
-      <!-- 3枚目と5枚 表示エリア -->
-      <div id="slideshow-group-2" class="slideshow-group">
-        <img src="assets/S007_問題文.png" alt="スライドショー画像3" class="slide slide-2" style="display: block;">
-        <img src="assets/S002_問題文.png" alt="スライドショー画像5" class="slide slide-2" style="display: none;">
-      </div>
     
     <!-- デモ画面セクション -->
     <section id="demo">
@@ -172,7 +165,7 @@
         slide.style.display = (index === slideIndex) ? 'block' : 'none';
       });
       slideIndex = (slideIndex + 1) % slides.length; // 次のスライドに移行
-      setTimeout(showSlides, 3000); // 3秒ごとにスライドを変更
+      setTimeout(showSlides, 5000); // 3秒ごとにスライドを変更
     }
     showSlides(); // 初回のスライドショー開始
   </script>
