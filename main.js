@@ -79,31 +79,37 @@ const slideshowImages = [
 ];
 
 let currentImageIndex = 0;
-const slideshowElement = document.getElementById("slideshow-image");
+let activeImage = 1; // 現在表示中の画像番号（1 or 2）
+const slideshowElement1 = document.getElementById("slideshow-image1");
+const slideshowElement2 = document.getElementById("slideshow-image2");
 let isWaitingForOutputClear = false;
 
 // 画像をフェードイン・フェードアウトしながら切り替える関数
 function changeImage() {
-  setTimeout(() => {
-    // 3枚目と5枚目は「出力結果のクリア」待ち
-    if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
-      isWaitingForOutputClear = true;
-      return;
-    }
-    
-  // フェードアウト開始
-  slideshowElement.classList.remove('visible'); 
+  // 3枚目と5枚目は「出力結果のクリア」待ち
+  if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
+    isWaitingForOutputClear = true;
+    return;
+  }
 
-  // フェードアウトが終わった後に画像を切り替え
-  setTimeout(() => {
-    // 次の画像に切り替え
-    currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
-    slideshowElement.src = slideshowImages[currentImageIndex];
-    isWaitingForOutputClear = false;
+  // 次の画像インデックスを設定
+  currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+  const nextImageSrc = slideshowImages[currentImageIndex];
 
-    // フェードイン
-    slideshowElement.classList.add('visible');
-  }, 1000); // フェードアウト後の切り替えタイミング
+  // アクティブ画像を切り替え
+  if (activeImage === 1) {
+    slideshowElement2.src = nextImageSrc;
+    slideshowElement2.classList.add("visible");
+    slideshowElement1.classList.remove("visible");
+    activeImage = 2;
+  } else {
+    slideshowElement1.src = nextImageSrc;
+    slideshowElement1.classList.add("visible");
+    slideshowElement2.classList.remove("visible");
+    activeImage = 1;
+  }
+
+  isWaitingForOutputClear = false; // クリア待機を解除
 }
 
 // 出力結果がクリアされているかを確認する関数
