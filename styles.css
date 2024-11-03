@@ -26,6 +26,7 @@ body {
 
 /* スライドショー画像のスタイル */
 #slideshow-container {
+  position: relative;
   width: 100%;
   max-width: 800px; /* 必要に応じて最大幅を調整 */
   margin: 0 auto;
@@ -34,6 +35,9 @@ body {
 }
 
 #slideshow-image {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: auto;
   max-height: 400px; /* 必要に応じて高さを調整 */
