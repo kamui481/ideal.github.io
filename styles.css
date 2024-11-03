@@ -24,26 +24,6 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* スライドショー画像のスタイル */
-#slideshow-container {
-  width: 100%;
-  max-width: 800px; /* 必要に応じて最大幅を調整 */
-  margin: 0 auto;
-  overflow: hidden; /* はみ出し部分を非表示に */
-  text-align: center;
-}
-
-#slideshow-image {
-  width: 100%;
-  height: auto;
-  max-height: 400px; /* 必要に応じて高さを調整 */
-  transition: opacity 1s ease-in-out; /* フェード効果を追加 */
-  opacity: 0;
-}
-
-#slideshow-image.fade-in {
-  opacity: 1;
-}
 
 /* ヘッダーのスタイル（コンパクト） */
 header {
