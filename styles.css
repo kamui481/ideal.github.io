@@ -37,7 +37,9 @@ body {
 .slideshow-image1, #slideshow-image2 {
   width: 100%;
   height: auto;
-  max-height: 400px; /* 高さ調整 */
+  max-width: 800px; /* 横幅の最大サイズ */
+  max-height: 500px; /* 縦幅の最大サイズ */
+  object-fit: contain; /* アスペクト比を保ちながら枠内に収める */
   transition: opacity 1s ease-in-out; /* フェード効果を追加 */
   opacity: 1;
   position: absolute;
