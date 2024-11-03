@@ -70,23 +70,23 @@ startTypingAnimation();
 // スライドショーの設定
 // =============================
 
-const slideshowImages = [
-  "assets/Paizaレーティング.jpg",
-  "assets/S007_結果サマリ.png",
-  "assets/S007_問題文.png",// 特別なタイミング
-  "assets/S002_結果サマリ.png",
-  "assets/S002_問題文.png"// 特別なタイミング
-];
+// スライドショー要素の取得
+const slideshowElement = document.getElementById("slideshow-group-1");
 
-let currentImageIndex = 0;
-const slideshowElement = document.getElementById("slideshow-image");
-let isWaitingForOutputClear = false;// 出力結果が消えるのを待機中かどうか
+// 最大サイズの画像を取得して基準サイズを設定
+const largestImage = new Image();
+largestImage.src = "assets/Paizaレーティング.jpg"; // 最大サイズの画像を指定
+largestImage.onload = function() {
+  // 画像読み込み後、スライドショー領域のサイズを固定
+  slideshowElement.style.width = `${largestImage.width}px`;
+  slideshowElement.style.height = `${largestImage.height}px`;
+};
 
-// スライドショーの画像を切り替える関数
+// 画像切り替え関数
 function changeImage() {
   if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
     isWaitingForOutputClear = true;
-    return;// 出力結果が消えるまで切り替えを待つ
+    return; // 出力結果が消えるまで切り替えを待つ
   }
 
   currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
