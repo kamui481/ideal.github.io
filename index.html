@@ -55,17 +55,20 @@
       </ul>
     </section>
 
-    <!-- PAIZA Sランク取得デモ -->
+    <!-- ポートフォリオ ヘッダー -->
     <header>
       <h1>PAIZA Sランク取得デモ</h1>
       <p>自動コード入力と出力結果のデモ</p>
-      
-      <!-- スライドショーの追加 -->
-      <div id="image-slideshow">
-        <img id="slideshow-image" src="assets/Paizaレーティング.jpg" alt="スライドショー画像">
+      <!-- スライドショー画像の表示 -->
+      <div id="slideshow">
+        <img src="assets/Paizaレーティング.jpg" alt="スライドショー画像1" class="slide" style="display: block;">
+        <img src="assets/S007_結果サマリ.png" alt="スライドショー画像2" class="slide" style="display: none;">
+        <img src="assets/S007_問題文.png" alt="スライドショー画像3" class="slide" style="display: none;">
+        <img src="assets/S002_結果サマリ.png" alt="スライドショー画像4" class="slide" style="display: none;">
+        <img src="assets/S002_問題文.png" alt="スライドショー画像5" class="slide" style="display: none;">
       </div>
     </header>
-
+    
     <!-- デモ画面セクション -->
     <section id="demo">
       <h2>デモ画面</h2>
@@ -152,6 +155,20 @@
 
   </div>
   <!-- JavaScriptファイルのリンク -->
+    <!-- JavaScriptファイルのリンク -->
   <script src="main.js"></script>
+  <script>
+    // スライドショーのJavaScript
+    let slideIndex = 0;
+    function showSlides() {
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach((slide, index) => {
+        slide.style.display = (index === slideIndex) ? 'block' : 'none';
+      });
+      slideIndex = (slideIndex + 1) % slides.length; // 次のスライドに移行
+      setTimeout(showSlides, 3000); // 3秒ごとにスライドを変更
+    }
+    showSlides(); // 初回のスライドショー開始
+  </script>
 </body>
 </html>
