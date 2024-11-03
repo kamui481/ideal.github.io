@@ -80,18 +80,18 @@ const slideshowImages = [
 
 let currentImageIndex = 0;
 const slideshowElement = document.getElementById("slideshow-image");
+const outputDisplay = document.getElementById('outputDisplay');
 let isWaitingForOutputClear = false;
 
-// 画像のフェードイン・フェードアウト効果を追加した画像切り替え関数
+// 画像をフェードイン・フェードアウトしながら切り替える関数
 function changeImage() {
-  // フェードアウト
-  slideshowElement.classList.remove('fade-in');
-  
+  slideshowElement.classList.remove('visible'); // フェードアウト
+
   setTimeout(() => {
-    // 現在の画像が3枚目または5枚目の場合、出力結果のクリアを待つ
+    // 3枚目と5枚目は「出力結果のクリア」待ち
     if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
       isWaitingForOutputClear = true;
-      return; // 出力結果が消えるまで切り替えを待つ
+      return;
     }
 
     // 次の画像に切り替え
@@ -100,14 +100,22 @@ function changeImage() {
     isWaitingForOutputClear = false;
 
     // フェードイン
-    slideshowElement.classList.add('fade-in');
-  }, 500); // フェードアウト後の切り替えタイミング
+    slideshowElement.classList.add('visible');
+  }, 1000); // フェードアウト後の切り替えタイミング
 }
 
-// 出力結果がクリアされているかをチェックする関数
+// 出力結果がクリアされているかを確認する関数
 function isOutputCleared() {
-  return outputDisplay.textContent.trim() === ''; // 出力結果が空ならtrue
+  return outputDisplay.textContent.trim() === '';
 }
+
+// 出力結果のクリアを待つ
+const observer = new MutationObserver(() => {
+  if (isWaitingForOutputClear && isOutputCleared()) {
+    changeImage(); // 出力結果がクリアされたら画像を切り替え
+  }
+});
+observer.observe(outputDisplay, { childList: true, subtree: true });
 
 // 3秒ごとに通常の画像を切り替え
 setInterval(() => {
