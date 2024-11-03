@@ -73,14 +73,19 @@ startTypingAnimation();
 // スライドショー要素の取得
 const slideshowElement = document.getElementById("slideshow-group-1");
 
-// 最大サイズの画像を取得して基準サイズを設定
-const largestImage = new Image();
-largestImage.src = "assets/S002_結果サマリ.png"; // 最大サイズの画像を指定
-largestImage.onload = function() {
-  // 画像読み込み後、スライドショー領域のサイズを固定
-  slideshowElement.style.width = `${largestImage.width}px`;
-  slideshowElement.style.height = `${largestImage.height}px`;
-};
+// スライドショーの表示サイズをユーザーが指定
+const slideshowWidth = 800;  // 幅を指定（ピクセル単位）
+const slideshowHeight = 450; // 高さを指定（ピクセル単位）
+
+// スライドショー要素の取得
+const slideshowElementGroup1 = document.getElementById("slideshow-group-1");
+const slideshowElementGroup2 = document.getElementById("slideshow-group-2");
+
+// スライドショー領域のサイズを固定
+slideshowElementGroup1.style.width = `${slideshowWidth}px`;
+slideshowElementGroup1.style.height = `${slideshowHeight}px`;
+slideshowElementGroup2.style.width = `${slideshowWidth}px`;
+slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 
 // 画像切り替え関数
 function changeImage() {
