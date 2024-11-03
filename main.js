@@ -90,7 +90,7 @@ slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 
 let currentImageIndex = 0;
 let slideshowRepeatCount = 0;
-const maxRepeats = 3; // スライドショーの繰り返し回数
+const maxRepeats = 1; // スライドショーの繰り返し回数
 @@ -96,20 +104,21 @@ function changeImage() {
   // 3回繰り返した後、スライドショーを停止して1枚目に固定
   if (slideshowRepeatCount >= maxRepeats) {
