@@ -95,6 +95,10 @@ let currentImageIndex = 0;
 let slideshowRepeatCount = 0;
 const maxRepeats = 1; // スライドショーの繰り返し回数
 
+
+// デバッグメッセージ用
+console.log("スライドショーを開始します");
+
 // スライドショーの画像を切り替える関数
 function changeImage() {
   // 3回繰り返した後、スライドショーを停止して1枚目に固定
@@ -102,8 +106,12 @@ function changeImage() {
     currentImageIndex = 0; // 1枚目の画像に戻す
     slideshowImageElement.src = slideshowImages[currentImageIndex]; // 1枚目に設定
     clearInterval(slideshowInterval); // スライドショーを停止
+    console.log("スライドショーを停止しました。1枚目の画像で固定されています。");
     return;
   }
+
+  // デバッグ用メッセージ
+  console.log(`現在の画像インデックス: ${currentImageIndex}, 繰り返し回数: ${slideshowRepeatCount}`);
 
   // 画像を切り替える
   slideshowImageElement.src = slideshowImages[currentImageIndex];
@@ -112,6 +120,7 @@ function changeImage() {
   // スライドショーが一巡した場合、繰り返し回数を増やす
   if (currentImageIndex === 0) {
     slideshowRepeatCount++;
+    console.log(`スライドショーが一巡しました。現在の繰り返し回数: ${slideshowRepeatCount}`);
   }
 }
 
