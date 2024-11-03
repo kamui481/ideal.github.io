@@ -87,13 +87,32 @@ slideshowElementGroup1.style.height = `${slideshowHeight}px`;
 slideshowElementGroup2.style.width = `${slideshowWidth}px`;
 slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 
-// 画像切り替え関数
-function changeImage() {
-  if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
-    isWaitingForOutputClear = true;
-    return; // 出力結果が消えるまで切り替えを待つ
-  }
+let currentImageIndex = 0;
+let slideshowRepeatCount = 0;
+const maxRepeats = 3; // スライドショーの繰り返し回数
 
+// スライドショーの画像を切り替える関数
+function changeImage() {
+  // 3回繰り返した後、スライドショーを停止して1枚目に固定
+  if (slideshowRepeatCount >= maxRepeats) {
+    currentImageIndex = 0; // 1枚目の画像に戻す
+    slideshowElementGroup1.src = slideshowImages[currentImageIndex];
+    slideshowElementGroup2.src = slideshowImages[currentImageIndex];
+    clearInterval(slideshowInterval); // スライドショーを停止
+    return;
+  }
+    // 画像を切り替える
+  slideshowElementGroup1.src = slideshowImages[currentImageIndex];
+  slideshowElementGroup2.src = slideshowImages[currentImageIndex];
+  currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+
+  // スライドショーが一巡した場合、繰り返し回数を増やす
+  if (currentImageIndex === 0) {
+    slideshowRepeatCount++;
+  }
+// スライドショー開始
+const slideshowInterval = setInterval(changeImage, 3000);
+  
   currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
   slideshowElement.src = slideshowImages[currentImageIndex];
   isWaitingForOutputClear = false;
