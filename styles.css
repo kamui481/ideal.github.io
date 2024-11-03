@@ -36,7 +36,6 @@ body {
 /* スライドショー画像のスタイル */
 .slideshow-image1, #slideshow-image2 {
   width: 100%;
-  height: auto;
   max-width: 800px; /* 横幅の最大サイズ */
   max-height: 500px; /* 縦幅の最大サイズ */
   object-fit: contain; /* アスペクト比を保ちながら枠内に収める */
@@ -45,6 +44,16 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.slideshow-image.visible {
+  opacity: 1;
+  z-index: 1; /* 前面に表示 */
+}
+
+.slideshow-image.hidden {
+  opacity: 0;
+  z-index: 0; /* 背面に表示 */
 }
 
 #slideshow-image1.visible, #slideshow-image2.visible {
