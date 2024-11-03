@@ -41,8 +41,8 @@ body {
   opacity: 1;
 }
 
-#slideshow-image.fade-in {
-  opacity: 1;
+#slideshow-image.visible {
+  opacity: 1; /* フェードイン時は不透明 */
 }
 
 /* ヘッダーのスタイル（コンパクト） */
