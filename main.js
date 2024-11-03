@@ -91,7 +91,7 @@ slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 let currentImageIndex = 0;
 let slideshowRepeatCount = 0;
 const maxRepeats = 1; // スライドショーの繰り返し回数
-@@ -96,20 +104,21 @@ function changeImage() {
+function changeImage() {
   // 3回繰り返した後、スライドショーを停止して1枚目に固定
   if (slideshowRepeatCount >= maxRepeats) {
     currentImageIndex = 0; // 1枚目の画像に戻す
@@ -103,7 +103,6 @@ const maxRepeats = 1; // スライドショーの繰り返し回数
     // 画像を切り替える
   slideshowElementGroup1.src = slideshowImages[currentImageIndex];
   slideshowElementGroup2.src = slideshowImages[currentImageIndex];
-  currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
 
   // スライドショーが一巡した場合、繰り返し回数を増やす
   if (currentImageIndex === 0) {
