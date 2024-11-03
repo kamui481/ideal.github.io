@@ -126,7 +126,7 @@ function startSlideshow(slideClass) {
     currentIndex = (currentIndex + 1) % slides.length;
   }
 
-  setInterval(showSlide, 3000);
+  setInterval(showSlide, 7000);
 }
 
 // 1枚目、2枚目、4枚目のスライドショー開始
