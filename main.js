@@ -80,11 +80,33 @@ let currentImageIndex1 = 0;
 let currentImageIndex2 = 0;
 const slideshowElement1 = document.getElementById("slideshow-image1");
 const slideshowElement2 = document.getElementById("slideshow-image2");
-let isWaitingForOutputClear = false;
 
 // 初期設定: slideshowElement1 に最初の画像を表示
 slideshowElement1.src = slideshowImages1[currentImageIndex1];
 slideshowElement1.classList.add('visible');
+
+
+// スライドショーの制御関数
+function startSlideshow() {
+  setInterval(() => {
+    // フェードアウト
+    slideshowElement1.classList.toggle('visible');
+    slideshowElement2.classList.toggle('visible');
+
+    setTimeout(() => {
+      // 画像のインデックスを更新
+      currentImageIndex1 = (currentImageIndex1 + 1) % slideshowImages1.length;
+      currentImageIndex2 = (currentImageIndex2 + 1) % slideshowImages2.length;
+
+      // 次の画像に切り替え
+      slideshowElement1.src = slideshowImages1[currentImageIndex1];
+      slideshowElement2.src = slideshowImages2[currentImageIndex2];
+    }, 1000); // フェードアウト完了後に画像切り替え
+  }, 3000); // 3秒ごとにスライドを変更
+}
+
+// 初回のスライドショー開始
+startSlideshow();
 
 // 画像をフェードイン・フェードアウトしながら切り替える関数
 function changeImage() {
@@ -132,6 +154,3 @@ setInterval(() => {
     changeImage();
   }
 }, 3000);
-
-// 初回のスライドショー開始
-startSlideshow();
