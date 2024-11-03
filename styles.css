@@ -229,7 +229,6 @@ footer a:hover {
 .slideshow-group {
   width: 100%;
   max-width: 600px; /* 最大幅を設定 */
-  aspect-ratio: 16 / 9; /* アスペクト比を固定 */
   margin: 0 auto 20px; /* 中央寄せと下部の余白 */
   display: flex;
   justify-content: center;
