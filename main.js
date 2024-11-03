@@ -77,6 +77,7 @@ const slideshowHeight = 450;  // 高さを指定（ピクセル単位）
 // スライドショー要素の取得
 const slideshowElementGroup1 = document.getElementById("slideshow-group-1");
 const slideshowElementGroup2 = document.getElementById("slideshow-group-2");
+const slideshowImageElement = document.querySelector("#slideshow-group-1 img");  // グループ内の最初の画像要素を取得
 
 // スライドショー領域のサイズを固定
 slideshowElementGroup1.style.width = `${slideshowWidth}px`;
