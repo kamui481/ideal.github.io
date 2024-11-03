@@ -88,26 +88,24 @@ slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 const slideshowImages = [
   "assets/Paizaレーティング.jpg",
   "assets/S007_結果サマリ.png",
-  "assets/S007_問題文.png",
-  "assets/S002_結果サマリ.png",
-  "assets/S002_問題文.png"
+  "assets/S002_結果サマリ.png"
 ];
 let currentImageIndex = 0;
 let slideshowRepeatCount = 0;
-const maxRepeats = 3; // スライドショーの繰り返し回数
+const maxRepeats = 1; // スライドショーの繰り返し回数
 
 // スライドショーの画像を切り替える関数
 function changeImage() {
   // 3回繰り返した後、スライドショーを停止して1枚目に固定
   if (slideshowRepeatCount >= maxRepeats) {
     currentImageIndex = 0; // 1枚目の画像に戻す
-    document.getElementById("slideshow-image").src = slideshowImages[currentImageIndex]; // 1枚目に設定
+    slideshowImageElement.src = slideshowImages[currentImageIndex]; // 1枚目に設定
     clearInterval(slideshowInterval); // スライドショーを停止
     return;
   }
 
   // 画像を切り替える
-  document.getElementById("slideshow-image").src = slideshowImages[currentImageIndex];
+  slideshowImageElement.src = slideshowImages[currentImageIndex];
   currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
 
   // スライドショーが一巡した場合、繰り返し回数を増やす
