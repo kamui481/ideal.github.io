@@ -229,14 +229,15 @@ footer a:hover {
 .slideshow-group {
   width: 100%;
   max-width: 600px; /* 最大幅を設定 */
-  margin: 0 auto 20px;
-  text-align: center;
+  margin: 0 auto 20px; /* 中央寄せと下部の余白 */
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #444444; /* 背景色を追加して画像枠を視覚的に確認可能 */
-  padding: 10px; /* 枠内の余白を追加 */
+  background-color: #444444; /* 背景色を設定 */
+  padding: 10px; /* 枠内の余白 */
   border-radius: 8px; /* 枠に丸みを追加 */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  overflow: hidden; /* はみ出し防止 */
 }
 
 /* 画像が枠内に確実に収まるように調整 */
