@@ -24,7 +24,7 @@ let typingIndex = 0;
 let testIndex = 0;
 let codeIndex = 0;
 let demoCount = 0; // デモ表示の回数をカウント
-const maxDemos = 1; // 最大表示回数
+const maxDemos = 2; // 最大表示回数
 const typingSpeed = 50; // コード入力の速度
 
 // コードをアニメーションで途中まで表示する関数
@@ -32,6 +32,9 @@ function startTypingAnimation() {
   // 表示回数が指定の回数を超えたら停止
   if (demoCount >= maxDemos) {
     console.log("デモ表示が終了しました。"); // デバッグ用メッセージ
+    codeDisplay.textContent = '';
+    testDataDisplay.textContent = '';
+    outputDisplay.textContent = '';
     return;
   }
   codeDisplay.textContent = '';
