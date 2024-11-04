@@ -94,27 +94,27 @@ slideshowElementGroup2.style.width = `${slideshowWidth}px`;
 slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 
 let currentImageIndex = 0;
-let isWaitingForOutputClear = false;
 let cycleCount = 0;
-const maxCycles = 2;  // 表示サイクル数を2回に設定
+const maxCycles = 2;  // スライドショーを繰り返す回数
 
 // 画像切り替え関数
 function changeImage() {
-  // スライドショーが2回表示されたら1枚目の画像で固定
   if (cycleCount >= maxCycles) {
-    slideshowElementGroup1.style.backgroundImage = `url(${slideshowImages[0]})`;
+    // スライドショーを停止し、最初の画像に固定
+    slideshowElement.style.backgroundImage = `url(${slideshowImages[0]})`;
     return;
   }
 
-  // 背景画像を切り替え
-  slideshowElementGroup1.style.backgroundImage = `url(${slideshowImages[currentImageIndex]})`;
-  currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+  // 現在の画像を表示
+  slideshowElement.style.backgroundImage = `url(${slideshowImages[currentImageIndex]})`;
 
-  // 1サイクル完了後、サイクルカウントをインクリメント
-  if (currentImageIndex === 0) {
-    cycleCount++;
+  // 画像インデックスを更新
+  currentImageIndex++;
+  if (currentImageIndex >= slideshowImages.length) {
+    currentImageIndex = 0;
+    cycleCount++; // サイクルが一巡したらカウントを増やす
   }
 }
 
-// 3秒ごとに画像を切り替え
+// スライドショー開始
 setInterval(changeImage, 3000);
