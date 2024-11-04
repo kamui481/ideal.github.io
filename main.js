@@ -69,8 +69,12 @@ startTypingAnimation();
 // =============================
 // スライドショーの設定
 // =============================
+
+// スライドショー要素の取得
+const slideshowElement = document.getElementById("slideshow-group-1");
+
 // スライドショーの表示サイズをユーザーが指定
-const slideshowWidth = 800;  // 幅を指定（ピクセル単位）
+const slideshowWidth = 1400;  // 幅を指定（ピクセル単位）
 const slideshowHeight = 450; // 高さを指定（ピクセル単位）
 
 // スライドショー要素の取得
@@ -83,34 +87,55 @@ slideshowElementGroup1.style.height = `${slideshowHeight}px`;
 slideshowElementGroup2.style.width = `${slideshowWidth}px`;
 slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 
-// スライドショーの設定
-const slideshowElementGroup1 = document.getElementById("slideshow-group-1");
-const slides = slideshowElementGroup1.querySelectorAll('.slide');
-let slideIndex = 0;
-let cycleCount = 0;
-const maxCycles = 2; // スライドショーを繰り返す回数
+// 画像切り替え関数
+function changeImage() {
+  if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
+    isWaitingForOutputClear = true;
+    return; // 出力結果が消えるまで切り替えを待つ
+  }
 
-function showSlides() {
-    if (cycleCount >= maxCycles) {
-        // 最大サイクル数に達したら1枚目のスライドで固定
-        slides.forEach((slide, index) => {
-            slide.style.display = (index === 0) ? 'block' : 'none';
-        });
-        return;
-    }
-
-    // 全てのスライドを非表示にして現在のスライドを表示
-    slides.forEach((slide, index) => {
-        slide.style.display = (index === slideIndex) ? 'block' : 'none';
-    });
-
-    // スライドインデックスを更新
-    slideIndex++;
-    if (slideIndex >= slides.length) {
-        slideIndex = 0;
-        cycleCount++; // 1巡したらカウントを増やす
-    }
+  currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+  slideshowElement.src = slideshowImages[currentImageIndex];
+  isWaitingForOutputClear = false;
 }
 
-// 3秒ごとにスライドを切り替え
-setInterval(showSlides, 3000);
+// 出力結果がクリアされているかをチェックする関数
+function isOutputCleared() {
+  return outputDisplay.textContent.trim() === '';// 出力結果が空ならtrue
+}
+
+// 3秒ごとに通常の画像を切り替え
+setInterval(() => {
+  if (!isWaitingForOutputClear) {
+    changeImage();
+  }
+}, 3000);
+
+// 出力結果がクリアされたときに画像を切り替える
+const observer = new MutationObserver(() => {
+  if (isWaitingForOutputClear && isOutputCleared()) {
+    changeImage();// 出力結果がクリアされたら画像を切り替え
+  }
+});
+// 出力結果の変化を監視する
+observer.observe(outputDisplay, { childList: true, subtree: true });
+
+function startSlideshow(slideClass) {
+  let currentIndex = 0;
+  const slides = document.querySelectorAll(`.${slideClass}`);
+
+  function showSlide() {
+    slides.forEach((slide, index) => {
+      slide.style.display = (index === currentIndex) ? 'block' : 'none';
+    });
+    currentIndex = (currentIndex + 1) % slides.length;
+  }
+
+  setInterval(showSlide, 7000);
+}
+
+// 1枚目、2枚目、4枚目のスライドショー開始
+startSlideshow('slideshow-group-1', 'slide-1');
+
+// 3枚目と5枚目のスライドショー開始
+startSlideshow('slideshow-group-2', 'slide-2');
