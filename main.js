@@ -69,6 +69,18 @@ startTypingAnimation();
 // =============================
 // スライドショーの設定
 // =============================
+  // スライドショーのJavaScript
+  let slideIndex = 0;
+  function showSlides() {
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach((slide, index) => {
+      slide.style.display = (index === slideIndex) ? 'block' : 'none';
+    });
+    slideIndex = (slideIndex + 1) % slides.length; // 次のスライドに移行
+    setTimeout(showSlides, 8000); // 8秒ごとにスライドを変更
+  }
+  showSlides(); // 初回のスライドショー開始
+
 
 // スライドショー要素の取得
 const slideshowElementGroup1 = document.getElementById("slideshow-group-1");
