@@ -138,7 +138,7 @@ const slideshowImages2 = [
 
 let currentImageIndex2 = 0;
 let repeatCount2 = 0;
-const maxRepeats2 = 2;  // スライドショーの最大繰り返し回数
+const maxRepeats2 = 1;  // スライドショーの最大繰り返し回数
 let slideshowTimeout; // タイマーIDを保存する変数
 
 // slideshow2用の画像を切り替える関数
