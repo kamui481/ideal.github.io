@@ -70,72 +70,58 @@ startTypingAnimation();
 // スライドショーの設定
 // =============================
 
-// スライドショー要素の取得
-const slideshowElement = document.getElementById("slideshow-group-1");
-
 // スライドショーの表示サイズをユーザーが指定
 const slideshowWidth = 1400;  // 幅を指定（ピクセル単位）
-const slideshowHeight = 450; // 高さを指定（ピクセル単位）
+const slideshowHeight = 450;  // 高さを指定（ピクセル単位）
 
-// スライドショー要素の取得
-const slideshowElementGroup1 = document.getElementById("slideshow-group-1");
-const slideshowElementGroup2 = document.getElementById("slideshow-group-2");
+// スライドショー関連の変数
+let slideshowElementGroup1;
+let slideshowImageElement;
+const slideshowImages = [
+  "assets/Paizaレーティング.jpg",
+  "assets/S007_結果サマリ.png",
+  "assets/S002_結果サマリ.png"
+];
+let currentImageIndex = 0;
+let slideshowRepeatCount = 0;
+const maxRepeats = 1; // スライドショーの繰り返し回数
 
-// スライドショー領域のサイズを固定
-slideshowElementGroup1.style.width = `${slideshowWidth}px`;
-slideshowElementGroup1.style.height = `${slideshowHeight}px`;
-slideshowElementGroup2.style.width = `${slideshowWidth}px`;
-slideshowElementGroup2.style.height = `${slideshowHeight}px`;
-
-// 画像切り替え関数
+// スライドショーの画像を切り替える関数
 function changeImage() {
-  if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
-    isWaitingForOutputClear = true;
-    return; // 出力結果が消えるまで切り替えを待つ
+  // 指定回数繰り返した後、スライドショーを停止して1枚目に固定
+  if (slideshowRepeatCount >= maxRepeats) {
+    currentImageIndex = 0; // 1枚目の画像に戻す
+    slideshowImageElement.src = slideshowImages[currentImageIndex]; // 1枚目に設定
+    clearInterval(slideshowInterval); // スライドショーを停止
+    console.log("スライドショーを停止しました。1枚目の画像で固定されています。");
+    return;
   }
 
+  // 画像を切り替える
+  slideshowImageElement.src = slideshowImages[currentImageIndex];
   currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
-  slideshowElement.src = slideshowImages[currentImageIndex];
-  isWaitingForOutputClear = false;
-}
 
-// 出力結果がクリアされているかをチェックする関数
-function isOutputCleared() {
-  return outputDisplay.textContent.trim() === '';// 出力結果が空ならtrue
-}
-
-// 3秒ごとに通常の画像を切り替え
-setInterval(() => {
-  if (!isWaitingForOutputClear) {
-    changeImage();
+  // スライドショーが一巡した場合、繰り返し回数を増やす
+  if (currentImageIndex === 0) {
+    slideshowRepeatCount++;
+    console.log(`スライドショーが一巡しました。現在の繰り返し回数: ${slideshowRepeatCount}`);
   }
-}, 3000);
+}
 
-// 出力結果がクリアされたときに画像を切り替える
-const observer = new MutationObserver(() => {
-  if (isWaitingForOutputClear && isOutputCleared()) {
-    changeImage();// 出力結果がクリアされたら画像を切り替え
+// DOMの読み込み完了後にスライドショーを初期化
+document.addEventListener("DOMContentLoaded", function() {
+  slideshowElementGroup1 = document.getElementById("slideshow-group-1");
+  slideshowImageElement = slideshowElementGroup1.querySelector("img"); // 最初の画像要素を取得
+
+  if (slideshowElementGroup1 && slideshowImageElement) {
+    // スライドショー領域のサイズを固定
+    slideshowElementGroup1.style.width = `${slideshowWidth}px`;
+    slideshowElementGroup1.style.height = `${slideshowHeight}px`;
+
+    // スライドショー開始
+    const slideshowInterval = setInterval(changeImage, 3000);
+    console.log("スライドショーを開始します");
+  } else {
+    console.error("スライドショー要素が見つかりませんでした");
   }
 });
-// 出力結果の変化を監視する
-observer.observe(outputDisplay, { childList: true, subtree: true });
-
-function startSlideshow(slideClass) {
-  let currentIndex = 0;
-  const slides = document.querySelectorAll(`.${slideClass}`);
-
-  function showSlide() {
-    slides.forEach((slide, index) => {
-      slide.style.display = (index === currentIndex) ? 'block' : 'none';
-    });
-    currentIndex = (currentIndex + 1) % slides.length;
-  }
-
-  setInterval(showSlide, 7000);
-}
-
-// 1枚目、2枚目、4枚目のスライドショー開始
-startSlideshow('slideshow-group-1', 'slide-1');
-
-// 3枚目と5枚目のスライドショー開始
-startSlideshow('slideshow-group-2', 'slide-2');
