@@ -160,7 +160,7 @@ function changeImage2() {
     setTimeout(changeImage2, 10500);
   } else {
     // 2枚目 -> 1枚目に切り替える際は17秒後に変更
-    setTimeout(changeImage2, 24000);
+    setTimeout(changeImage2, 22000);
     repeatCount2++;  // 1巡完了とみなして繰り返しカウントを増やす
   }
 
