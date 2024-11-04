@@ -69,28 +69,6 @@ startTypingAnimation();
 // =============================
 // スライドショーの設定
 // =============================
-  // スライドショーのJavaScript
-  let slideIndex = 0;
-  function showSlides() {
-    const slides = document.querySelectorAll('.slide');
-    slides.forEach((slide, index) => {
-      slide.style.display = (index === slideIndex) ? 'block' : 'none';
-    });
-    slideIndex = (slideIndex + 1) % slides.length; // 次のスライドに移行
-    setTimeout(showSlides, 8000); // 8秒ごとにスライドを変更
-  }
-  showSlides(); // 初回のスライドショー開始
-
-
-// スライドショー要素の取得
-const slideshowElementGroup1 = document.getElementById("slideshow-group-1");
-
-// スライド要素の配列を設定（スライドに表示されるコンテンツを追加）
-const slideshowImages = [
-    'assets/Paizaレーティング.jpg',
-    'assets/S007_結果サマリ.png',
-    'assets/S002_結果サマリ.png'
-];
 // スライドショーの表示サイズをユーザーが指定
 const slideshowWidth = 800;  // 幅を指定（ピクセル単位）
 const slideshowHeight = 450; // 高さを指定（ピクセル単位）
@@ -105,28 +83,34 @@ slideshowElementGroup1.style.height = `${slideshowHeight}px`;
 slideshowElementGroup2.style.width = `${slideshowWidth}px`;
 slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 
-let currentImageIndex = 0;
+// スライドショーの設定
+const slideshowElementGroup1 = document.getElementById("slideshow-group-1");
+const slides = slideshowElementGroup1.querySelectorAll('.slide');
+let slideIndex = 0;
 let cycleCount = 0;
-const maxCycles = 2;  // スライドショーを繰り返す回数
+const maxCycles = 2; // スライドショーを繰り返す回数
 
-// 画像切り替え関数
-function changeImage() {
-  if (cycleCount >= maxCycles) {
-    // スライドショーを停止し、最初の画像に固定
-    slideshowElement.style.backgroundImage = `url(${slideshowImages[0]})`;
-    return;
-  }
+function showSlides() {
+    if (cycleCount >= maxCycles) {
+        // 最大サイクル数に達したら1枚目のスライドで固定
+        slides.forEach((slide, index) => {
+            slide.style.display = (index === 0) ? 'block' : 'none';
+        });
+        return;
+    }
 
-  // 現在の画像を表示
-  slideshowElement.style.backgroundImage = `url(${slideshowImages[currentImageIndex]})`;
+    // 全てのスライドを非表示にして現在のスライドを表示
+    slides.forEach((slide, index) => {
+        slide.style.display = (index === slideIndex) ? 'block' : 'none';
+    });
 
-  // 画像インデックスを更新
-  currentImageIndex++;
-  if (currentImageIndex >= slideshowImages.length) {
-    currentImageIndex = 0;
-    cycleCount++; // サイクルが一巡したらカウントを増やす
-  }
+    // スライドインデックスを更新
+    slideIndex++;
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
+        cycleCount++; // 1巡したらカウントを増やす
+    }
 }
 
-// スライドショー開始
-setInterval(changeImage, 3000);
+// 3秒ごとにスライドを切り替え
+setInterval(showSlides, 3000);
