@@ -71,8 +71,8 @@ startTypingAnimation();
 // =============================
 
 // スライドショーの表示サイズをユーザーが指定
-const slideshowWidth = 1400;  // 幅を指定（ピクセル単位）
-const slideshowHeight = 450;  // 高さを指定（ピクセル単位）
+// const slideshowWidth = 1400;  // 幅を指定（ピクセル単位）
+// const slideshowHeight = 450;  // 高さを指定（ピクセル単位）
 
 // スライドショー関連の変数
 let slideshowElementGroup1;
@@ -85,6 +85,36 @@ const slideshowImages = [
 let currentImageIndex = 0;
 let slideshowRepeatCount = 0;
 const maxRepeats = 1; // スライドショーの繰り返し回数
+
+// 基準画像のサイズ取得と他の画像のサイズ調整関数
+const baseImageSrc = "assets/Paizaレーティング.jpg"; // 基準とする画像
+let baseWidth, baseHeight;
+
+function setBaseImageSize() {
+  const baseImage = new Image();
+  baseImage.src = baseImageSrc;
+
+  baseImage.onload = () => {
+    baseWidth = baseImage.width;
+    baseHeight = baseImage.height;
+
+    // スライドショーコンテナのサイズを基準画像に合わせる
+    slideshowElementGroup1.style.width = `${baseWidth}px`;
+    slideshowElementGroup1.style.height = `${baseHeight}px`;
+
+    // 他の画像を基準画像と同じサイズに設定
+    slideshowImages.forEach((src) => {
+      const imgElement = document.createElement("img");
+      imgElement.src = src;
+      imgElement.style.width = `${baseWidth}px`;
+      imgElement.style.height = `${baseHeight}px`;
+      imgElement.classList.add("slide"); // スライド用クラスを追加
+      slideshowElementGroup1.appendChild(imgElement); // コンテナに追加
+    });
+
+    console.log("基準画像のサイズに基づいて他の画像の縮尺を設定しました。");
+  };
+}
 
 // スライドショーの画像を切り替える関数
 function changeImage() {
@@ -110,20 +140,19 @@ function changeImage() {
 
 // DOMの読み込み完了後にスライドショーを初期化
 document.addEventListener("DOMContentLoaded", function() {
+  // slideshowElementGroup1が読み込まれていることを確認
   slideshowElementGroup1 = document.getElementById("slideshow-group-1");
   slideshowImageElement = slideshowElementGroup1.querySelector("img"); // 最初の画像要素を取得
 
-  if (slideshowElementGroup1 && slideshowImageElement) {
-    // スライドショー領域のサイズを固定
-    slideshowElementGroup1.style.width = `${slideshowWidth}px`;
-    slideshowElementGroup1.style.height = `${slideshowHeight}px`;
-
-    // スライドショー開始
-    const slideshowInterval = setInterval(changeImage, 3000);
-    console.log("スライドショーを開始します");
+  if (slideshowElementGroup1) {
+    setBaseImageSize(); // 基準画像のサイズ設定
   } else {
     console.error("スライドショー要素が見つかりませんでした");
   }
+
+  // スライドショーを開始（基準画像設定後に実行されるよう調整）
+  const slideshowInterval = setInterval(changeImage, 3000);
+  console.log("スライドショーを開始します");
 });
 
 // =============================
