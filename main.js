@@ -125,3 +125,60 @@ document.addEventListener("DOMContentLoaded", function() {
     console.error("スライドショー要素が見つかりませんでした");
   }
 });
+
+// =============================
+// slideshow2の設定
+// =============================
+
+const slideshowElementGroup2 = document.getElementById("slideshow-group-2");
+const slideshowImages2 = [
+  "assets/1st_image.jpg",  // 1枚目の画像
+  "assets/2nd_image.jpg"   // 2枚目の画像
+];
+
+let currentImageIndex2 = 0;
+let repeatCount2 = 0;
+const maxRepeats2 = 2;  // スライドショーの最大繰り返し回数
+
+// slideshow2用の画像を切り替える関数
+function changeImage2() {
+  if (repeatCount2 >= maxRepeats2) {
+    // 指定回数を超えた場合、スライドショーを停止し、非表示にする
+    clearInterval(slideshowInterval2);
+    slideshowElementGroup2.style.display = "none";
+    console.log("slideshow2を停止し、非表示にしました。");
+    return;
+  }
+
+  // 現在の画像を切り替え
+  slideshowElementGroup2.querySelector("img").src = slideshowImages2[currentImageIndex2];
+  console.log(`slideshow2の現在の画像: ${currentImageIndex2 + 1}枚目`);
+
+  // 画像インデックスを更新
+  if (currentImageIndex2 === 0) {
+    // 1枚目 -> 2枚目に切り替える際は9秒後に変更
+    setTimeout(changeImage2, 9000);
+  } else {
+    // 2枚目 -> 1枚目に切り替える際は17秒後に変更
+    setTimeout(changeImage2, 17000);
+    repeatCount2++;  // 1巡完了とみなして繰り返しカウントを増やす
+  }
+
+  // 画像インデックスの更新（0と1を交互に）
+  currentImageIndex2 = (currentImageIndex2 + 1) % slideshowImages2.length;
+}
+
+// slideshow2の初期設定
+document.addEventListener("DOMContentLoaded", function() {
+  if (slideshowElementGroup2) {
+    // slideshow2を表示し、1枚目の画像を設定
+    slideshowElementGroup2.style.display = "block";
+    slideshowElementGroup2.querySelector("img").src = slideshowImages2[0];
+
+    // slideshow2を開始
+    setTimeout(changeImage2, 9000);  // 初回は9秒後に2枚目に変更
+  } else {
+    console.error("slideshow2要素が見つかりませんでした");
+  }
+});
+
