@@ -132,8 +132,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const slideshowElementGroup2 = document.getElementById("slideshow-group-2");
 const slideshowImages2 = [
-  "assets/1st_image.jpg",  // 1枚目の画像
-  "assets/2nd_image.jpg"   // 2枚目の画像
+  "assets/S007_問題文.png",  // 1枚目の画像
+  "assets/S002_問題文.png"   // 2枚目の画像
 ];
 
 let currentImageIndex2 = 0;
@@ -157,10 +157,10 @@ function changeImage2() {
   // 画像インデックスを更新
   if (currentImageIndex2 === 0) {
     // 1枚目 -> 2枚目に切り替える際は9秒後に変更
-    setTimeout(changeImage2, 9000);
+    setTimeout(changeImage2, 10500);
   } else {
     // 2枚目 -> 1枚目に切り替える際は17秒後に変更
-    setTimeout(changeImage2, 17000);
+    setTimeout(changeImage2, 24000);
     repeatCount2++;  // 1巡完了とみなして繰り返しカウントを増やす
   }
 
