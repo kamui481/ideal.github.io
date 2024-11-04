@@ -23,10 +23,17 @@ const testCases = [
 let typingIndex = 0;
 let testIndex = 0;
 let codeIndex = 0;
+let demoCount = 0; // デモ表示の回数をカウント
+const maxDemos = 1; // 最大表示回数
 const typingSpeed = 50; // コード入力の速度
 
 // コードをアニメーションで途中まで表示する関数
 function startTypingAnimation() {
+  // 表示回数が指定の回数を超えたら停止
+  if (demoCount >= maxDemos) {
+    console.log("デモ表示が終了しました。"); // デバッグ用メッセージ
+    return;
+  }
   codeDisplay.textContent = '';
   outputDisplay.textContent = '';
   testDataDisplay.textContent = '';
@@ -58,6 +65,7 @@ function displayTestData() {
     // 次のテストケース・コードに進む
     testIndex = (testIndex + 1) % testCases.length;
     codeIndex = (codeIndex + 1) % codeSamples.length;
+    demoCount++; // デモ表示の回数をカウント
 
     setTimeout(startTypingAnimation, 3000); // 次のアニメーション開始
   }, 1000);
