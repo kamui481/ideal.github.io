@@ -161,9 +161,9 @@ function changeImage2() {
   // 1枚目 -> 2枚目に切り替える際は9秒、2枚目 -> 1枚目に切り替える際は17秒後に変更
   if (currentImageIndex2 === 0) {
     repeatCount2++;  // 1巡完了とみなして繰り返しカウントを増やす
-    slideshowTimeout = setTimeout(changeImage2, 17000); // 2枚目から1枚目に戻るときは17秒待機
+    slideshowTimeout = setTimeout(changeImage2, 21500); // 2枚目から1枚目に戻るときは17秒待機
   } else {
-    slideshowTimeout = setTimeout(changeImage2, 9000); // 1枚目から2枚目に切り替えるときは9秒待機
+    slideshowTimeout = setTimeout(changeImage2, 9500); // 1枚目から2枚目に切り替えるときは9秒待機
   }
 }
 
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function() {
     slideshowElementGroup2.querySelector("img").src = slideshowImages2[0];
 
     // slideshow2を開始
-    slideshowTimeout = setTimeout(changeImage2, 9000);  // 初回は9秒後に2枚目に変更
+    slideshowTimeout = setTimeout(changeImage2, 9500);  // 初回は9秒後に2枚目に変更
   } else {
     console.error("slideshow2要素が見つかりませんでした");
   }
