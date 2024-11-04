@@ -71,8 +71,14 @@ startTypingAnimation();
 // =============================
 
 // スライドショー要素の取得
-const slideshowElement = document.getElementById("slideshow-group-1");
+const slideshowElementGroup1 = document.getElementById("slideshow-group-1");
 
+// スライド要素の配列を設定（スライドに表示されるコンテンツを追加）
+const slideshowImages = [
+    'assets/Paizaレーティング.jpg',
+    'assets/S007_結果サマリ.png',
+    'assets/S002_結果サマリ.png'
+];
 // スライドショーの表示サイズをユーザーが指定
 const slideshowWidth = 800;  // 幅を指定（ピクセル単位）
 const slideshowHeight = 450; // 高さを指定（ピクセル単位）
@@ -87,52 +93,28 @@ slideshowElementGroup1.style.height = `${slideshowHeight}px`;
 slideshowElementGroup2.style.width = `${slideshowWidth}px`;
 slideshowElementGroup2.style.height = `${slideshowHeight}px`;
 
+let currentImageIndex = 0;
+let isWaitingForOutputClear = false;
+let cycleCount = 0;
+const maxCycles = 2;  // 表示サイクル数を2回に設定
+
 // 画像切り替え関数
 function changeImage() {
-  if ((currentImageIndex === 2 || currentImageIndex === 4) && !isOutputCleared()) {
-    isWaitingForOutputClear = true;
-    return; // 出力結果が消えるまで切り替えを待つ
+  // スライドショーが2回表示されたら1枚目の画像で固定
+  if (cycleCount >= maxCycles) {
+    slideshowElementGroup1.style.backgroundImage = `url(${slideshowImages[0]})`;
+    return;
   }
 
+  // 背景画像を切り替え
+  slideshowElementGroup1.style.backgroundImage = `url(${slideshowImages[currentImageIndex]})`;
   currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
-  slideshowElement.src = slideshowImages[currentImageIndex];
-  isWaitingForOutputClear = false;
+
+  // 1サイクル完了後、サイクルカウントをインクリメント
+  if (currentImageIndex === 0) {
+    cycleCount++;
+  }
 }
 
-// 出力結果がクリアされているかをチェックする関数
-function isOutputCleared() {
-  return outputDisplay.textContent.trim() === '';// 出力結果が空ならtrue
-}
-
-// 3秒ごとに通常の画像を切り替え
-setInterval(() => {
-  if (!isWaitingForOutputClear) {
-    changeImage();
-  }
-}, 3000);
-
-// 出力結果がクリアされたときに画像を切り替える
-const observer = new MutationObserver(() => {
-  if (isWaitingForOutputClear && isOutputCleared()) {
-    changeImage();// 出力結果がクリアされたら画像を切り替え
-  }
-});
-// 出力結果の変化を監視する
-observer.observe(outputDisplay, { childList: true, subtree: true });
-
-function startSlideshow(slideClass) {
-  let currentIndex = 0;
-  const slides = document.querySelectorAll(`.${slideClass}`);
-
-  function showSlide() {
-    slides.forEach((slide, index) => {
-      slide.style.display = (index === currentIndex) ? 'block' : 'none';
-    });
-    currentIndex = (currentIndex + 1) % slides.length;
-  }
-
-  setInterval(showSlide, 7000);
-}
-
-startSlideshow('slideshow-group-1');
-startSlideshow('slideshow-group-2');
+// 3秒ごとに画像を切り替え
+setInterval(changeImage, 3000);
