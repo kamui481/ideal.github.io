@@ -125,3 +125,47 @@ document.addEventListener("DOMContentLoaded", function() {
     console.error("スライドショー要素が見つかりませんでした");
   }
 });
+
+// =============================
+// slideshow-group-2の設定
+// =============================
+
+// スライドショー要素の取得
+const slideshowElementGroup2 = document.getElementById("slideshow-group-2");
+const slideshowImageElementGroup2 = document.querySelector("#slideshow-group-2 img"); // グループ内の画像要素
+
+// スライドショーの画像リスト
+const slideshowImagesGroup2 = [
+  "assets/S007_問題文.png",
+  "assets/S002_問題文.png",
+];
+
+let currentImageIndexGroup2 = 0;
+let slideshowRepeatCountGroup2 = 0;
+const maxRepeatsGroup2 = 2; // スライドショーの繰り返し回数（2回）
+const slideIntervalGroup2 = 9000; // スライド間隔（15秒）
+
+// スライドショーの画像を切り替える関数
+function changeImageGroup2() {
+  // 2回繰り返した後に停止し、最後の画像に固定
+  if (slideshowRepeatCountGroup2 >= maxRepeatsGroup2) {
+    clearInterval(slideshowIntervalGroup2); // スライドショーを停止
+    currentImageIndexGroup2 = slideshowImagesGroup2.length - 1; // 最後の画像に設定
+    slideshowImageElementGroup2.src = slideshowImagesGroup2[currentImageIndexGroup2];
+    console.log("slideshow-group-2が2回で停止し、最後の画像に固定されました。");
+    return;
+  }
+
+  // 画像を切り替え
+  slideshowImageElementGroup2.src = slideshowImagesGroup2[currentImageIndexGroup2];
+  currentImageIndexGroup2 = (currentImageIndexGroup2 + 1) % slideshowImagesGroup2.length;
+
+  // 一巡した場合、繰り返し回数を増加
+  if (currentImageIndexGroup2 === 0) {
+    slideshowRepeatCountGroup2++;
+    console.log(`slideshow-group-2が一巡しました。現在の繰り返し回数: ${slideshowRepeatCountGroup2}`);
+  }
+}
+
+// スライドショー開始
+const slideshowIntervalGroup2 = setInterval(changeImageGroup2, slideIntervalGroup2);
