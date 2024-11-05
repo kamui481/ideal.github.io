@@ -47,6 +47,24 @@
         padding-left: 20px;
         text-align: left;
     }
+    /* PlantUMLシーケンス図を表示するコンテナ */
+    #uml-container {
+      max-width: 100%;           /* 画面いっぱいの幅で表示 */
+      overflow-x: auto;          /* 横スクロールを有効に */
+      white-space: nowrap;       /* 改行を無効に */
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      margin: 0 auto;            /* 中央寄せ */
+      box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
+    }
+
+    /* 画像スタイル */
+    .uml-image {
+      max-width: none;           /* 画像自体は縮小せずに表示 */
+      height: auto;
+      display: inline-block;     /* コンテナ内で横スクロール可能に */
+    }
 </style>
 </head>
 <body>
@@ -60,9 +78,14 @@
     </header>
 
     <!-- ポートフォリオの目的図 -->
+
     <section id="portfolio-goal">
-      <h2>ポートフォリオの目的</h2>
-      <img src="assets/portfolio_diagram.png" alt="ポートフォリオの目的" class="portfolio-img">
+      <h2>TimeLine</h2>
+      <div id="uml-container">
+  　　<img id="uml-image" src="" alt="PlantUMLシーケンス図">
+        <script src="https://cdn.jsdelivr.net/npm/plantuml-encoder/dist/plantuml-encoder.min.js"></script>
+        <script src="main.js"></script>
+      </div>
     </section>
 
     <!-- プロフィールセクション -->
