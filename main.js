@@ -24,7 +24,7 @@ let typingIndex = 0;
 let testIndex = 0;
 let codeIndex = 0;
 let demoCount = 0; // デモ表示の回数をカウント
-const maxDemos = 2; // 最大表示回数
+const maxDemos = 1; // 最大表示回数
 const typingSpeed = 50; // コード入力の速度
 
 // コードをアニメーションで途中まで表示する関数
