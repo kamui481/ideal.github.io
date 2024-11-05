@@ -65,6 +65,24 @@
       height: auto;
       display: inline-block;     /* コンテナ内で横スクロール可能に */
     }
+        /* PlantUMLシーケンス図を表示するコンテナ */
+    #slideshow-group-2 {
+      max-width: 100%;           /* 画面いっぱいの幅で表示 */
+      overflow-x: auto;          /* 横スクロールを有効に */
+      white-space: nowrap;       /* 改行を無効に */
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      margin: 0 auto;            /* 中央寄せ */
+      box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
+    }
+
+    /* 画像スタイル */
+    .slideshow-group-2-image {
+      max-width: none;           /* 画像自体は縮小せずに表示 */
+      height: auto;
+      display: inline-block;     /* コンテナ内で横スクロール可能に */
+    }
 </style>
 </head>
 <body>
@@ -147,7 +165,7 @@
 
       <!-- 3枚目と5枚 表示エリア -->
       <div id="slideshow-group-2" style="display: none;">
-        <img src="assets/1st_image.jpg" alt="Paiza問題文">
+  　　  <img id="uml-image" src="assets/1st_image.jpg" alt="Paiza問題文">
       </div>
     </header>
     
