@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -159,9 +160,9 @@
       <!-- スライドショー画像の表示 -->
       <!-- 1枚目、2枚目、4枚目 表示エリア -->
       <div id="slideshow-group-1" class="slideshow-group">
-        <img src="assets/Paizaレーティング.jpg" alt="スライドショー画像1" class="slide slide-1" style="display: block;">
-        <img src="assets/S007_結果サマリ.png" alt="スライドショー画像2" class="slide slide-1" style="display: none;">
-        <img src="assets/S002_結果サマリ.png" alt="スライドショー画像4" class="slide slide-1" style="display: none;">
+        <img id="uml-image" src="assets/Paizaレーティング.jpg" alt="スライドショー画像1" class="slide slide-1" style="display: block;">
+        <img id="uml-image" src="assets/S007_結果サマリ.png" alt="スライドショー画像2" class="slide slide-1" style="display: none;">
+        <img id="uml-image" src="assets/S002_結果サマリ.png" alt="スライドショー画像4" class="slide slide-1" style="display: none;">
       </div>
 
       <!-- 3枚目と5枚 表示エリア -->
@@ -187,67 +188,68 @@
       </div>
     </section>
 
-    <!-- 自己紹介セクション -->
+    <!-- 自己紹介セクション 
     <section id="about">
       <h2>About Me</h2>
       <p>私はシステムエンジニアで、フルスタック開発とプロジェクト管理を専門としています。さまざまなプロジェクト経験を活かし、貴社に貢献できる即戦力となります。</p>
     </section>
 
-    <!-- プロジェクトセクション -->
-    <section id="projects">
-      <h2>Projects</h2>
+<!-- プロジェクトセクション 
+<section id="projects">
+  <h2>Projects</h2>
+  
+  <!-- プロジェクト 1 
+  <div class="project">
+    <h3>Project 1: 医療機関連携開発プロジェクト</h3>
+    <img src="project1.jpg" alt="Project 1 image" class="project-img">
+    <p><strong>プロジェクト概要:</strong> 複数の医療機関とデータを共有し、患者の医療データを円滑に管理・参照できるシステムを構築。データの正確性とセキュリティが重要視されるプロジェクトです。</p>
+    <p><strong>具体的な実績:</strong> データセキュリティ対策、プロジェクト計画と進捗管理、医療機関との連携・交渉を担当。</p>
+    <p><strong>採用後の貢献:</strong> セキュリティが求められるシステムでの経験を活かし、貴社のデータ保護強化をサポート。</p>
+    <a href="https://github.com/yourusername/project1">GitHub リンク</a>
+  </div>
 
-      <!-- プロジェクト 1 -->
-      <div class="project">
-        <h3>Project 1: 医療機関連携開発プロジェクト</h3>
-        <img src="project1.jpg" alt="Project 1 image" class="project-img">
-        <p><strong>プロジェクト概要:</strong> 複数の医療機関とデータを共有し、患者の医療データを円滑に管理・参照できるシステムを構築。データの正確性とセキュリティが重要視されるプロジェクトです。</p>
-        <p><strong>具体的な実績:</strong> データセキュリティ対策、プロジェクト計画と進捗管理、医療機関との連携・交渉を担当。</p>
-        <p><strong>採用後の貢献:</strong> セキュリティが求められるシステムでの経験を活かし、貴社のデータ保護強化をサポート。</p>
-        <a href="https://github.com/yourusername/project1">GitHub リンク</a>
-      </div>
+  <!-- プロジェクト 2 
+  <div class="project">
+    <h3>Project 2: 大規模映像配信刷新プロジェクト</h3>
+    <img src="project2.jpg" alt="Project 2 image" class="project-img">
+    <p><strong>プロジェクト概要:</strong> 映像配信システムの刷新により、ユーザー体験を向上させるためのインフラやUIの改善を実施しました。</p>
+    <p><strong>具体的な実績:</strong> ベンダー管理、負荷試験とパフォーマンス最適化、ユーザーエクスペリエンスの向上を担当。</p>
+    <p><strong>採用後の貢献:</strong> パフォーマンス最適化やUX改善を通じて、貴社のプロジェクト進行を支援。</p>
+    <a href="https://github.com/yourusername/project2">GitHub リンク</a>
+  </div>
 
-      <!-- プロジェクト 2 -->
-      <div class="project">
-        <h3>Project 2: 大規模映像配信刷新プロジェクト</h3>
-        <img src="project2.jpg" alt="Project 2 image" class="project-img">
-        <p><strong>プロジェクト概要:</strong> 映像配信システムの刷新により、ユーザー体験を向上させるためのインフラやUIの改善を実施しました。</p>
-        <p><strong>具体的な実績:</strong> ベンダー管理、負荷試験とパフォーマンス最適化、ユーザーエクスペリエンスの向上を担当。</p>
-        <p><strong>採用後の貢献:</strong> パフォーマンス最適化やUX改善を通じて、貴社のプロジェクト進行を支援。</p>
-        <a href="https://github.com/yourusername/project2">GitHub リンク</a>
-      </div>
+  <!-- プロジェクト 3 
+  <div class="project">
+    <h3>Project 3: 新規コンテンツ開発プロジェクト</h3>
+    <img src="project3.jpg" alt="Project 3 image" class="project-img">
+    <p><strong>プロジェクト概要:</strong> 新規コンテンツを企画・開発し、年商10億円以上の目標達成を目指しました。</p>
+    <p><strong>具体的な実績:</strong> 市場調査と競合分析、経営戦略提案、データドリブンな改善活動を実施。</p>
+    <p><strong>採用後の貢献:</strong> ユーザー視点とビジネス視点の両方から新規事業に貢献可能です。</p>
+    <a href="https://github.com/yourusername/project3">GitHub リンク</a>
+  </div>
 
-      <!-- プロジェクト 3 -->
-      <div class="project">
-        <h3>Project 3: 新規コンテンツ開発プロジェクト</h3>
-        <img src="project3.jpg" alt="Project 3 image" class="project-img">
-        <p><strong>プロジェクト概要:</strong> 新規コンテンツを企画・開発し、年商10億円以上の目標達成を目指しました。</p>
-        <p><strong>具体的な実績:</strong> 市場調査と競合分析、経営戦略提案、データドリブンな改善活動を実施。</p>
-        <p><strong>採用後の貢献:</strong> ユーザー視点とビジネス視点の両方から新規事業に貢献可能です。</p>
-        <a href="https://github.com/yourusername/project3">GitHub リンク</a>
-      </div>
+  <!-- プロジェクト 4 
+  <div class="project">
+    <h3>Project 4: 官公庁系プロジェクト</h3>
+    <img src="project4.jpg" alt="Project 4 image" class="project-img">
+    <p><strong>プロジェクト概要:</strong> 国家事業の運営効率化を目指し、業務システムの導入や運営フローの改善を実施しました。</p>
+    <p><strong>具体的な実績:</strong> 複数ベンダーの統制、公募要領の策定と評価基準の設定、運用サポート体制構築。</p>
+    <p><strong>採用後の貢献:</strong> 公的機関のプロジェクトでも調整力を活かして貢献できます。</p>
+    <a href="https://github.com/yourusername/project4">GitHub リンク</a>
+  </div>
 
-      <!-- プロジェクト 4 -->
-      <div class="project">
-        <h3>Project 4: 官公庁系プロジェクト</h3>
-        <img src="project4.jpg" alt="Project 4 image" class="project-img">
-        <p><strong>プロジェクト概要:</strong> 国家事業の運営効率化を目指し、業務システムの導入や運営フローの改善を実施しました。</p>
-        <p><strong>具体的な実績:</strong> 複数ベンダーの統制、公募要領の策定と評価基準の設定、運用サポート体制構築。</p>
-        <p><strong>採用後の貢献:</strong> 公的機関のプロジェクトでも調整力を活かして貢献できます。</p>
-        <a href="https://github.com/yourusername/project4">GitHub リンク</a>
-      </div>
+  <!-- プロジェクト 5 
+  <div class="project">
+    <h3>Project 5: 基幹系システム（ERP）導入プロジェクト</h3>
+    <img src="project5.jpg" alt="Project 5 image" class="project-img">
+    <p><strong>プロジェクト概要:</strong> 全社的な業務効率を向上させるため、ERP（SAP S/4 HANA）の導入を推進。</p>
+    <p><strong>具体的な実績:</strong> 要件定義とベンダー選定、プロセス改善と標準化、リソースとスケジュール管理。</p>
+    <p><strong>採用後の貢献:</strong> ERP導入の経験を活かし、貴社の基幹システム刷新を支援可能です。</p>
+    <a href="https://github.com/yourusername/project5">GitHub リンク</a>
+  </div>
 
-      <!-- プロジェクト 5 -->
-      <div class="project">
-        <h3>Project 5: 基幹系システム（ERP）導入プロジェクト</h3>
-        <img src="project5.jpg" alt="Project 5 image" class="project-img">
-        <p><strong>プロジェクト概要:</strong> 全社的な業務効率を向上させるため、ERP（SAP S/4 HANA）の導入を推進。</p>
-        <p><strong>具体的な実績:</strong> 要件定義とベンダー選定、プロセス改善と標準化、リソースとスケジュール管理。</p>
-        <p><strong>採用後の貢献:</strong> ERP導入の経験を活かし、貴社の基幹システム刷新を支援可能です。</p>
-        <a href="https://github.com/yourusername/project5">GitHub リンク</a>
-      </div>
-
-    </section>
+</section>
+-->
 
     <!-- フッターセクション -->
     <footer>
