@@ -9,6 +9,31 @@ body {
   box-sizing: border-box;
 }
 
+.image-container {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+}
+
+.background-image {
+  width: 100%;
+  height: auto;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #333;
+  padding: 20px;
+  pointer-events: none; /* 画像上でのクリックを無効化 */
+  white-space: pre-wrap; /* 改行を保持 */
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
 #container {
   width: 100%;
   padding: 20px;
