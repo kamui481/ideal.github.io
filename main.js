@@ -1,3 +1,79 @@
+// PlantUMLサーバーURL
+const plantUMLServer = "https://www.plantuml.com/plantuml/svg/";
+
+// 初期のPlantUMLコード（@startumlとタイトルのみを初期設定）
+let umlCode = `
+@startuml
+title キャリアのタイムライン
+`;
+
+// PlantUMLのステップごとのコードスニペット
+const umlSteps = [
+  "|2007年|\nstart\n",
+  ":自動車電装会社入社 - システムエンジニア;\n",
+  ":カーナビ開発導入プロジェクトに従事;\n",
+  ":チームリーダーとして要求定義、要件定義、\\n設計、プログラミング、テストを担当;\n",
+  ":業務効率化により工数を20%削減;\n",
+  
+  "|2010年|\n",
+  ":電力会社に転職 - プロジェクトマネージャー;\n",
+  ":業務改善およびERP導入プロジェクト;\n",
+  ":ERP導入による業務効率化を15%達成;\n",
+  ":提案依頼書の作成、要件定義、システム最適化に従事;\\nERP、原子力発電所対策も担当;\n",
+  ":プロジェクト期間中、関係者と週次会議を実施し\\nステークホルダー間の調整をリード;\n",
+
+  "|2015年|\n",
+  ":ゲーム会社入社 - 統括マネージャー;\n",
+  ":新規コンテンツ開発、海外プロジェクト;\n",
+  ":年商10億円のコンテンツ推進、マーケティングと経営戦略に携わる;\n",
+  ":営業、マーケティングチームと連携し、リスク管理を徹底;\n",
+
+  "|2021年|\n",
+  ":映像配信会社に入社 - PMO担当;\n",
+  ":大規模映像配信システムの刷新プロジェクト;\n",
+  ":進捗管理、課題整理、ベンダーコントロールを担当;\n",
+  ":プロジェクト計画を策定し、\\nチーム間のスケジュール調整とリソース割り当てを最適化;\n",
+
+  "|2022年|\n",
+  ":医療機関連携開発会社に入社 - プロジェクトマネージャー;\n",
+  ":医療機関連携プロジェクト;\n",
+  ":医療データの共有とセキュリティの課題解決;\n",
+  ":セキュリティ保護、システム設計、進捗管理をリードし、\\n医療データの安全な共有を実現;\n",
+
+  "stop\n@enduml"
+];
+
+// アニメーションの速度設定
+const animationSpeed = 800; // ミリ秒
+
+// PlantUMLコードをエンコードしてURLを作成
+function encodePlantUML(uml) {
+  const encoded = plantumlEncoder.encode(uml);
+  return `${plantUMLServer}${encoded}`;
+}
+
+// PlantUML画像を更新
+function updateUMLImage() {
+  const imageUrl = encodePlantUML(umlCode);
+  document.getElementById("uml-image").src = imageUrl;
+}
+
+// ステップごとにPlantUMLコードを追加して画像を更新する
+async function animateUMLSequence() {
+  for (const step of umlSteps) {
+    umlCode += step;  // ステップを追加
+    updateUMLImage();  // 画像を更新
+    await new Promise(resolve => setTimeout(resolve, animationSpeed)); // 次のステップまで待機
+  }
+}
+
+// ページ読み込み時にアニメーション開始
+document.addEventListener("DOMContentLoaded", () => {
+  animateUMLSequence();
+});
+
+
+
 // =============================
 // 自動コード入力・繰り返しテストデモのスクリプト
 // =============================
