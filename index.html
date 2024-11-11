@@ -59,6 +59,12 @@
       box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
     }
 
+    /* 画像スタイル */
+    .uml-image {
+      max-width: none;           /* 画像自体は縮小せずに表示 */
+      height: auto;
+      display: inline-block;     /* コンテナ内で横スクロール可能に */
+    }
     /* Slideshow2図を表示するコンテナ */
     #slideshow-group-2 {
       max-width: 100%;           /* 画面いっぱいの幅で表示 */
@@ -152,7 +158,7 @@
       <p>自動コード入力と出力結果のデモ</p>
       <!-- スライドショー画像の表示 -->
       <!-- 1枚目、2枚目、4枚目 表示エリア -->
-      <div id="slideshow-group-1">
+      <div id="slideshow-group-1" class="slideshow-group">
         <img id="uml-image" src="assets/Paizaレーティング.jpg" alt="スライドショー画像1" class="slide slide-1" style="display: block;">
         <img id="uml-image" src="assets/S007_結果サマリ.png" alt="スライドショー画像2" class="slide slide-1" style="display: none;">
         <img id="uml-image" src="assets/S002_結果サマリ.png" alt="スライドショー画像4" class="slide slide-1" style="display: none;">
