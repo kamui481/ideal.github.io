@@ -253,9 +253,9 @@ footer a:hover {
 /* スライドショーグループのレスポンシブ設定 */
 .slideshow-group {
   display: flex;
-  max-width: 100%;           /* 画面いっぱいの幅で表示 */
   justify-content: center; /* コンテナ内で中央揃え */
   align-items: center; /* コンテナ内で上下中央揃え */
+  width: 100%;           /* 画面いっぱいの幅で表示 */
   overflow-x: auto;          /* 横スクロールを有効に */
   padding: 20px;
   border: 1px solid #444444;
@@ -266,9 +266,11 @@ footer a:hover {
 
   /* 画像スタイル */
   .uml-image {
-    max-width: none;           /* 画像自体は縮小せずに表示 */
-    height: auto;
-    display: inline-block;     /* コンテナ内で横スクロール可能に */
+  width: auto;               /* 元のサイズで表示 */
+  max-width: none;           /* 親コンテナの幅に依存せず、縮小しない */
+  height: auto;
+  object-fit: contain;       /* 画像が枠内に収まるようにする */
+  display: inline-block;      /* 横スクロールを可能に */
   }
 
 /* 画像が枠内に確実に収まるように調整 */
