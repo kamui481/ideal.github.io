@@ -73,6 +73,15 @@
     }
     
     /* 画像スタイル */
+    .slideshow-group-1-image {
+      max-width: 100%;             /* 画像の最大幅を親コンテナに合わせる */
+      height: auto;                /* 縦横比を保って自動調整 */
+      object-fit: contain;         /* 画像が枠内に収まるようにする */
+      display: block;              /* フレックス設定を干渉しないためにブロック表示 */
+    }
+
+    
+    /* 画像スタイル */
     .uml-image {
       max-width: none;           /* 画像自体は縮小せずに表示 */
       height: auto;
@@ -172,9 +181,9 @@
       <!-- スライドショー画像の表示 -->
       <!-- 1枚目、2枚目、4枚目 表示エリア -->
       <div id="slideshow-group-1" class="slideshow-group">
-        <img id="uml-image" src="assets/Paizaレーティング.jpg" alt="スライドショー画像1" class="slide slide-1" style="display: block;">
-        <img id="uml-image" src="assets/S007_結果サマリ.png" alt="スライドショー画像2" class="slide slide-1" style="display: none;">
-        <img id="uml-image" src="assets/S002_結果サマリ.png" alt="スライドショー画像4" class="slide slide-1" style="display: none;">
+        <img id="slideshow-group-1-image" src="assets/Paizaレーティング.jpg" alt="スライドショー画像1" style="display: block;">
+        <img id="slideshow-group-1-image" src="assets/S007_結果サマリ.png" alt="スライドショー画像2" style="display: none;">
+        <img id="slideshow-group-1-image" src="assets/S002_結果サマリ.png" alt="スライドショー画像4" style="display: none;">
       </div>
 
       <!-- 3枚目と5枚 表示エリア -->
