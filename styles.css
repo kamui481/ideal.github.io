@@ -1,5 +1,4 @@
-/* 基本スタイル */
-/* ベースレイアウトのレスポンシブ対応 */
+/* ベーススタイル */
 body {
   display: flex;
   justify-content: center;
@@ -9,17 +8,33 @@ body {
   box-sizing: border-box;
 }
 
+/* 画像を中央に寄せるためのコンテナ */
+.slideshow-group,
 .image-container {
-  position: relative;
-  width: 80%;
-  max-width: 1000px;
-}
-
-.background-image {
+  display: flex;
+  justify-content: center; /* コンテナ内で水平中央寄せ */
+  align-items: center; /* コンテナ内で垂直中央寄せ */
   width: 100%;
-  height: auto;
+  max-width: 1000px; /* 必要に応じて最大幅を調整 */
+  margin: 0 auto 20px; /* 中央寄せと下部余白 */
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #444444;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
 }
 
+/* 画像スタイル（スライドショー内画像も含む） */
+.slide,
+.background-image,
+.umd-image,
+.slideshow-group-2-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; /* 画像を枠内に収めて縦横比を維持 */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* テキストオーバーレイのスタイル */
 .text-overlay {
   position: absolute;
   top: 0;
@@ -28,258 +43,28 @@ body {
   height: 100%;
   color: #333;
   padding: 20px;
-  pointer-events: none; /* 画像上でのクリックを無効化 */
-  white-space: pre-wrap; /* 改行を保持 */
+  pointer-events: none;
+  white-space: pre-wrap;
   font-size: 1.2em;
   line-height: 1.5;
 }
 
-#container {
-  width: 100%;
-  padding: 20px;
-  background-color: #333333;
-  border-radius: 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-/* ヘッダーのスタイル（コンパクト） */
-header {
-  background-color: #444444;
-  color: #a4d4a4;
-  text-align: center;
-  padding: 0.8em;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  font-size: 1.4em;
-  font-weight: bold;
-  animation: fadeIn 1s ease;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.5em;
-}
-
-header p {
-  margin: 0;
-  font-size: 0.9em;
-}
-
-#demo {
-  max-width: 800px; /* 最大幅を設定して右端を狭く */
-  width: 100%;
-  padding: 1em;
-  background-color: #333;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  margin: 20px auto; /* 左右の中央揃え */
-  box-sizing: border-box;
-}
-
-h2, h3 {
-  color: #4caf50;
-}
-
-/* 自動入力枠のスタイル */
-#code-container, #output-container, #test-container {
-  background-color: #444;
-  padding: 1em;
-  border-radius: 5px;
-  margin-top: 5px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-  max-width: 100%;           /* 画面いっぱいの幅で表示 */
-  box-sizing: border-box;
-  overflow-wrap: break-word; /* 長い行を折り返し */
-  word-wrap: break-word; /* はみ出し防止 */
-  overflow-x: auto;          /* 横スクロールを有効に */
-}
-
-/* セクションのスタイル */
-section {
-  margin-bottom: 20px;
-  padding: 1.5em;
-  background-color: #2a2a2a;
-  color: #e4e4e4;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-section:hover {
-  transform: translateY(-5px);
-}
-
-section h2 {
-  color: #4caf50;
-  border-bottom: 2px solid #4caf50;
-  padding-bottom: 0.3em;
-  margin-bottom: 1em;
-}
-
-/* ポートフォリオ画像のスタイル */
-.portfolio-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-}
-
-/* リストとテキストスタイルの調整 */
-ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin: 1em 0;
-}
-
-li {
-  margin-bottom: 0.5em;
-  line-height: 1.5;
-}
-
-p, a {
-  color: #e4e4e4;
-}
-
-a:hover {
-  color: #4caf50;
-  text-decoration: underline;
-}
-
-/* 各プロジェクトカードのスタイル */
-.project {
-  background-color: #444444;
-  padding: 1.2em;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.project h3 {
-  color: #a4d4a4;
-  margin-top: 0;
-  font-size: 1.5em;
-}
-
-.project p {
-  margin: 0.5em 0;
-  line-height: 1.5;
-}
-
-/* 画像のスタイル */
-.project-img {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  display: block;
-  margin: 0 auto 1em;
-  border-radius: 8px;
-}
-
-/* コード実行エリアのスタイル */
-#codeInput {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #2a2a2a;
-  color: #e4e4e4;
-  border: 1px solid #4caf50;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #4caf50;
-  color: #fff;
-  font-size: 1em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 10px;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-/* フッターのスタイル */
-footer {
-  text-align: center;
-  padding: 1em;
-  background-color: #444444;
-  color: #e4e4e4;
-  border-radius: 10px;
-}
-
-footer a {
-  color: #4caf50;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* レスポンシブデザイン */
+/* レスポンシブ対応 */
 @media (max-width: 768px) {
-  #container {
-    padding: 10px;
+  .slideshow-group,
+  .image-container {
+    max-width: 90%; /* 小さい画面でエリア幅を縮小 */
+    padding: 5px; /* パディングも調整 */
   }
+  
   header, section, footer {
     padding: 1em;
   }
+  
   section h2 {
     font-size: 1.4em;
   }
-  button {
-    font-size: 0.9em;
-  }
-}
-
-/* アニメーション */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* スライドショーグループのレスポンシブ設定 */
-.slideshow-group {
-  max-width: 100%;           /* 画面いっぱいの幅で表示 */
-  justify-content: center; /* コンテナ内で中央揃え */
-  align-items: center; /* コンテナ内で上下中央揃え */
-  overflow-x: auto;          /* 横スクロールを有効に */
-  padding: 30px;
-  border: 1px solid #444444;
-  background-color: #444444;
-  margin: 0 auto 10px; /* 中央寄せと下部の余白 */
-  box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
-}
-
-/* 画像が枠内に確実に収まるように調整 */
-.slide {
-  overflow-x: auto;          /* 横スクロールを有効に */
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-}
-
-/* 画面サイズに応じたレスポンシブ対応 */
-@media (max-width: 768px) {
-  .slideshow-group {
-    max-width: 100%; /* 小さい画面でスライドエリア幅を縮小 */
-  }
-  header, section, footer {
-    padding: 1em;
-  }
-  section h2 {
-    font-size: 1.4em;
-  }
+  
   button {
     font-size: 0.9em;
   }
