@@ -63,9 +63,12 @@
         /* 親コンテナ（スライドショーグループ）の設定 */
     .slideshow-group {
         max-width: 100%;           /* 画面いっぱいの幅で表示 */
+        justify-content: center;      /* 水平方向の中央寄せ */
+        align-items: center;          /* 垂直方向の中央寄せ */
         overflow-x: auto;          /* 横スクロールを有効に */
         white-space: nowrap;       /* 改行を無効に */
         padding: 20px;
+        border: 1px solid #444444;
         background-color: #444444;
         margin: 0 auto; /* 左右の中央揃え */
         box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
@@ -75,6 +78,7 @@
     .uml-image {
         max-width: none;           /* 画像自体は縮小せずに表示 */
         height: auto;
+        object-fit: contain;          /* 画像を枠内に収めて縦横比を維持 */
         display: inline-block;     /* コンテナ内で横スクロール可能に */
     }
     
