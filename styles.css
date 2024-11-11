@@ -264,6 +264,13 @@ footer a:hover {
   box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
 }
 
+  /* 画像スタイル */
+  .uml-image {
+    max-width: none;           /* 画像自体は縮小せずに表示 */
+    height: auto;
+    display: inline-block;     /* コンテナ内で横スクロール可能に */
+  }
+
 /* 画像が枠内に確実に収まるように調整 */
 .slide {
   overflow-x: auto;          /* 横スクロールを有効に */
