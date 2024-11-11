@@ -71,7 +71,25 @@
       margin: 0 auto;            /* 中央寄せ */
       box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
     }
-
+    
+    /* 親コンテナ（スライドショーグループ）の設定 */
+    .slideshow-group {
+        max-width: 100%;           /* 画面いっぱいの幅で表示 */
+        overflow-x: auto;          /* 横スクロールを有効に */
+        white-space: nowrap;       /* 改行を無効に */
+        padding: 10px;
+        background-color: #444444;
+        margin: 20px auto; /* 左右の中央揃え */
+        box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
+    }
+    
+    /* 共通スタイル - 画像 */
+    .uml-image {
+        max-width: none;           /* 画像自体は縮小せずに表示 */
+        height: auto;
+        display: inline-block;     /* コンテナ内で横スクロール可能に */
+    }
+        
     /* 画像スタイル */
     .slideshow-group-2-image {
       max-width: none;           /* 画像自体は縮小せずに表示 */
