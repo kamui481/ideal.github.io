@@ -277,10 +277,7 @@ footer a:hover {
 /* 画面サイズに応じたレスポンシブ対応 */
 @media (max-width: 768px) {
   .slideshow-group {
-    display: block;             /* モバイルではブロック表示で横スクロール対応 */
-    white-space: nowrap;        /* 改行を無効化 */
-    overflow-x: auto;
-    max-width: 100%;            /* モバイル画面ではコンテナ幅を100%に制限しない */
+    max-width: 100%; /* 小さい画面でスライドエリア幅を縮小 */
   }
   header, section, footer {
     padding: 1em;
@@ -290,8 +287,5 @@ footer a:hover {
   }
   button {
     font-size: 0.9em;
-  }
-  .uml-image {
-    max-width: none;            /* 画像の幅制限を解除 */
   }
 }
