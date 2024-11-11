@@ -256,7 +256,6 @@ footer a:hover {
   justify-content: center; /* コンテナ内で中央揃え */
   align-items: center; /* コンテナ内で上下中央揃え */
   overflow-x: auto;          /* 横スクロールを有効に */
-  padding: 30px;
   border: 1px solid #444444;
   background-color: #444444;
   margin: 0 auto 10px; /* 中央寄せと下部の余白 */
