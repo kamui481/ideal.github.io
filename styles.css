@@ -252,24 +252,21 @@ footer a:hover {
 
 /* 親コンテナ（スライドショーグループ）の設定 */
 .slideshow-group {
-  display: flex;
-  justify-content: center;      /* PC画面では中央寄せ */
-  align-items: center;
-  overflow-x: auto;             /* 必要に応じて横スクロールを有効にする */
-  padding: 10px;
-  background-color: #444444;
-  margin: 0 auto 10px;
-  box-sizing: border-box;
-  max-width: 100%;              /* PC画面では幅を制限 */
+      max-width: 100%;           /* 画面いっぱいの幅で表示 */
+      overflow-x: auto;          /* 横スクロールを有効に */
+      white-space: nowrap;       /* 改行を無効に */
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      margin: 0 auto;            /* 中央寄せ */
+      box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
 }
 
 /* 共通スタイル - 画像 */
 .uml-image {
-  width: auto;                  /* デフォルトのサイズで表示 */
-  max-width: 100%;              /* 親コンテナの幅を超えない */
-  height: auto;
-  object-fit: contain;          /* 縦横比を維持して枠内に収める */
-  display: inline-block;      /* 横スクロールを可能に */
+      max-width: none;           /* 画像自体は縮小せずに表示 */
+      height: auto;
+      display: inline-block;     /* コンテナ内で横スクロール可能に */
 }
 
 /* 画像が枠内に確実に収まるように調整 */
