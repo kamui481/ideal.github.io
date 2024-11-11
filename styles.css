@@ -268,6 +268,12 @@ footer a:hover {
     display: inline-block;     /* コンテナ内で横スクロール可能に */
 }
 
+/* 画像が枠内に確実に収まるように調整 */
+.slide {
+  overflow-x: auto;          /* 横スクロールを有効に */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
 /* 画面サイズに応じたレスポンシブ対応 */
 @media (max-width: 768px) {
   .slideshow-group {
