@@ -250,17 +250,27 @@ footer a:hover {
   }
 }
 
-/* スライドショーグループのレスポンシブ設定 */
+/* 親コンテナ（スライドショーグループ）の設定 */
 .slideshow-group {
-  max-width: 100%;           /* 画面いっぱいの幅で表示 */
-  justify-content: center; /* コンテナ内で中央揃え */
-  align-items: center; /* コンテナ内で上下中央揃え */
-  overflow-x: auto;          /* 横スクロールを有効に */
+  display: flex;               /* 親コンテナをフレックスボックスに */
+  justify-content: center;      /* 水平方向の中央寄せ */
+  align-items: center;          /* 垂直方向の中央寄せ */
+  max-width: 100%;              /* 画面いっぱいの幅で表示 */
+  overflow-x: auto;             /* 横スクロールを有効に */
   border: 1px solid #444444;
   background-color: #444444;
-  margin: 0 auto 10px; /* 中央寄せと下部の余白 */
-  box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
+  margin: 0 auto 10px;          /* 中央寄せと下部の余白 */
+  box-sizing: border-box;       /* パディングとボーダーを含めて幅を設定 */
 }
+
+/* 画像スタイル */
+.uml-image {
+  max-width: 100%;              /* 親コンテナに合わせて幅を調整 */
+  height: auto;                 /* 高さは自動調整 */
+  object-fit: contain;          /* 画像を枠内に収めて縦横比を維持 */
+  display: inline-block;        /* 親コンテナ内で横スクロール可能に */
+}
+
 
 /* 画像が枠内に確実に収まるように調整 */
 .slide {
