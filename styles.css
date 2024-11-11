@@ -257,15 +257,15 @@ footer a:hover {
     white-space: nowrap;       /* 改行を無効に */
     padding: 10px;
     background-color: #444444;
-    margin: 0 auto 10px;
+    margin: 0 auto;            /* 中央寄せ */
     box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
 }
 
 /* 共通スタイル - 画像 */
 .uml-image {
-      max-width: none;           /* 画像自体は縮小せずに表示 */
-      height: auto;
-      display: inline-block;     /* コンテナ内で横スクロール可能に */
+    max-width: none;           /* 画像自体は縮小せずに表示 */
+    height: auto;
+    display: inline-block;     /* コンテナ内で横スクロール可能に */
 }
 
 /* 画像が枠内に確実に収まるように調整 */
