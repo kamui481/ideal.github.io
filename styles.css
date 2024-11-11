@@ -252,14 +252,13 @@ footer a:hover {
 
 /* 親コンテナ（スライドショーグループ）の設定 */
 .slideshow-group {
-      max-width: 100%;           /* 画面いっぱいの幅で表示 */
-      overflow-x: auto;          /* 横スクロールを有効に */
-      white-space: nowrap;       /* 改行を無効に */
-      padding: 20px;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      margin: 0 auto;            /* 中央寄せ */
-      box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
+    max-width: 100%;           /* 画面いっぱいの幅で表示 */
+    overflow-x: auto;          /* 横スクロールを有効に */
+    white-space: nowrap;       /* 改行を無効に */
+    padding: 10px;
+    background-color: #444444;
+    margin: 0 auto 10px;
+    box-sizing: border-box;    /* パディングとボーダーを含めて幅を設定 */
 }
 
 /* 共通スタイル - 画像 */
