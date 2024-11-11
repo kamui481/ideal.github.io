@@ -252,23 +252,23 @@ footer a:hover {
 
 /* 親コンテナ（スライドショーグループ）の設定 */
 .slideshow-group {
-  display: block;
-  overflow-x: auto;           /* 横スクロールを有効にする */
-  white-space: nowrap;         /* 改行を無効化 */
+  display: flex;
+  justify-content: center;      /* PC画面では中央寄せ */
+  align-items: center;
+  overflow-x: auto;             /* 必要に応じて横スクロールを有効にする */
   padding: 10px;
   background-color: #444444;
   margin: 0 auto 10px;
   box-sizing: border-box;
 }
 
-/* 画像スタイル */
+/* 共通スタイル - 画像 */
 .uml-image {
-  width: auto;               /* 元のサイズで表示 */
-  object-fit: contain; /* 画像を枠内に収めて縦横比を維持 */
-  max-width: none;           /* 親コンテナの幅に依存せず、縮小しない */
+  width: auto;                  /* デフォルトのサイズで表示 */
+  max-width: 100%;              /* 親コンテナの幅を超えない */
   height: auto;
-  object-fit: contain;       /* 画像が枠内に収まるようにする */
-  display: inline-block;      /* 横スクロールを可能に */
+  object-fit: contain;          /* 縦横比を維持して枠内に収める */
+  display: inline-block;
 }
 
 /* 画像が枠内に確実に収まるように調整 */
@@ -280,7 +280,9 @@ footer a:hover {
 /* 画面サイズに応じたレスポンシブ対応 */
 @media (max-width: 768px) {
   .slideshow-group {
-    max-width: 100%; /* 小さい画面でスライドエリア幅を縮小 */
+    display: block;             /* モバイルではブロック表示で横スクロール対応 */
+    white-space: nowrap;        /* 改行を無効化 */
+    overflow-x: auto;
   }
   header, section, footer {
     padding: 1em;
@@ -290,5 +292,8 @@ footer a:hover {
   }
   button {
     font-size: 0.9em;
+  }
+  .uml-image {
+    max-width: none;            /* 画像の幅制限を解除 */
   }
 }
