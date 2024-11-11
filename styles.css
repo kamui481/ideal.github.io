@@ -264,17 +264,13 @@ footer a:hover {
 /* 画像スタイル */
 .uml-image {
   width: auto;               /* 元のサイズで表示 */
+  object-fit: contain; /* 画像を枠内に収めて縦横比を維持 */
   max-width: none;           /* 親コンテナの幅に依存せず、縮小しない */
   height: auto;
   object-fit: contain;       /* 画像が枠内に収まるようにする */
   display: inline-block;      /* 横スクロールを可能に */
 }
 
-/* 画像スタイル */
-    .uml-image {
-      justify-content: center; /* コンテナ内で中央揃え */
-      align-items: center; /* コンテナ内で上下中央揃え */
-    }
 /* 画像が枠内に確実に収まるように調整 */
 .slide {
   overflow-x: auto;          /* 横スクロールを有効に */
