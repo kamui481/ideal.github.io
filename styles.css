@@ -266,11 +266,11 @@ footer a:hover {
 
 /* 画像スタイル */
 .uml-image {
-  max-width: none;           /* 画像自体は縮小せずに表示 */
-  object-fit: contain; /* 画像を枠内に収めて縦横比を維持 */
-  height: auto;                 /* 高さは自動調整 */
-  object-fit: contain;          /* 画像を枠内に収めて縦横比を維持 */
-  display: inline-block;        /* 親コンテナ内で横スクロール可能に */
+  width: auto;               /* 元のサイズで表示 */
+  max-width: none;           /* 親コンテナの幅に依存せず、縮小しない */
+  height: auto;
+  object-fit: contain;       /* 画像が枠内に収まるようにする */
+  display: inline-block;      /* 横スクロールを可能に */
 }
 
 /* 画像スタイル */
