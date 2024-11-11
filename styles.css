@@ -260,6 +260,7 @@ footer a:hover {
   background-color: #444444;
   margin: 0 auto 10px;
   box-sizing: border-box;
+  max-width: 100%;              /* PC画面では幅を制限 */
 }
 
 /* 共通スタイル - 画像 */
@@ -268,7 +269,7 @@ footer a:hover {
   max-width: 100%;              /* 親コンテナの幅を超えない */
   height: auto;
   object-fit: contain;          /* 縦横比を維持して枠内に収める */
-  display: inline-block;
+  display: inline-block;      /* 横スクロールを可能に */
 }
 
 /* 画像が枠内に確実に収まるように調整 */
@@ -283,6 +284,7 @@ footer a:hover {
     display: block;             /* モバイルではブロック表示で横スクロール対応 */
     white-space: nowrap;        /* 改行を無効化 */
     overflow-x: auto;
+    max-width: 100%;            /* モバイル画面ではコンテナ幅を100%に制限しない */
   }
   header, section, footer {
     padding: 1em;
