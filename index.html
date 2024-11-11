@@ -62,9 +62,10 @@
 
         /* 親コンテナ（スライドショーグループ）の設定 */
     .slideshow-group-1 {
-        max-width: 100%;           /* 画面いっぱいの幅で表示 */
+        display: flex;               /* フレックスボックスで中央寄せを有効に */
         justify-content: center;      /* 水平方向の中央寄せ */
         align-items: center;          /* 垂直方向の中央寄せ */
+        max-width: 100%;           /* 画面いっぱいの幅で表示 */
         overflow-x: auto;          /* 横スクロールを有効に */
         white-space: nowrap;       /* 改行を無効に */
         padding: 20px;
